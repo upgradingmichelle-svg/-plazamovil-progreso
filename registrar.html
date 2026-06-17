@@ -136,30 +136,29 @@
 
         <div class="field">
           <label><span lang-es>Dirección en Progreso</span><span lang-en>Address in Progreso</span></label>
-          <input type="text" placeholder-es="Ej: Calle 80 x 31, Centro" placeholder-en="E.g.: Calle 80 x 31, Centro" />
-        </div>
+        <input type="text" name="address" placeholder-es="Ej: Calle 80 x 31, Centro" placeholder-en="E.g.: Calle 80 x 31, Centro" />
 
         <div class="field">
           <label><span lang-es>Horario de atención</span><span lang-en>Business hours</span></label>
           <input type="text" placeholder-es="Ej: Lun-Sab 9am-6pm" placeholder-en="E.g.: Mon-Sat 9am-6pm" />
-        </div>
+        <input type="text" name="hours" placeholder-es="Ej: Lun-Sab 9am-6pm" placeholder-en="E.g.: Mon-Sat 9am-6pm" />
 
         <div class="field">
           <label><span lang-es>Descripción breve</span><span lang-en>Brief description</span></label>
           <textarea placeholder-es="Describe tu negocio en pocas palabras..." placeholder-en="Describe your business briefly..."></textarea>
-        </div>
+        <<textarea name="description" placeholder-es="Describe tu negocio en pocas palabras..." placeholder-en="Describe your business briefly..."></textarea>/div>
 
         <div class="field">
           <label><span lang-es>Tu nombre</span><span lang-en>Your name</span></label>
           <input type="text" placeholder-es="Tu nombre completo" placeholder-en="Your full name" />
-        </div>
+      <input type="text" name="owner_name" placeholder-es="Tu nombre completo" placeholder-en="Your full name" />
 
         <button type="submit" class="submit-btn">
           <span lang-es>Enviar mi registro gratis</span>
           <span lang-en>Submit my free listing</span>
         </button>
         <p class="note"><span lang-es>Te contactaremos por WhatsApp para confirmar tu registro en menos de 24 horas.</span><span lang-en>We will contact you via WhatsApp to confirm your listing within 24 hours.</span></p>
-      </form>
+      <p class="note"><span lang-es>Te contactaremos por email para confirmar tu registro en menos de 24 horas.</span><span lang-en>We will contact you via email to confirm your listing within 24 hours.</span></p>
 
       <div class="success" id="success-msg">
         <div class="success-icon">🎉</div>
