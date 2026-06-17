@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Acerca de Plaza Movil — El directorio local de Progreso, Yucatan" />
+  <title>Acerca de — Plaza Movil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{--teal:#1A6B5C;--henequen:#D4763A;--arena:#F5EBD9;--noche:#1C2B3A;--espuma:#7BBFB4;--white:#FFFFFF;--muted:#888780;--border:rgba(212,118,58,0.10);--font-display:"Playfair Display",Georgia,serif;--font-body:"Inter",sans-serif;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:var(--font-body);background:var(--arena);color:var(--noche);-webkit-font-smoothing:antialiased;}
+    a{color:inherit;text-decoration:none;}.container{max-width:480px;margin:0 auto;}
+    .nav{background:var(--white);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo-svg{height:36px;width:auto;}
+    .nav-lang{background:var(--arena);color:var(--henequen);font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;cursor:pointer;border:none;}
+    .hero{background:var(--teal);padding:28px 20px 36px;}
+    .hero-back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.75);font-size:12px;margin-bottom:14px;}
+    .hero-title{font-family:var(--font-display);font-size:26px;color:#fff;margin-bottom:8px;}
+    .hero-sub{color:rgba(255,255,255,0.8);font-size:13px;line-height:1.6;}
+    .wave{display:block;width:100%;margin-top:-1px;}
+    .body{padding:20px 16px;}
+    .card{background:var(--white);border-radius:14px;padding:20px;margin-bottom:14px;border:1px solid var(--border);}
+    .card-icon{font-size:28px;margin-bottom:10px;}
+    .card-title{font-size:15px;font-weight:700;color:var(--noche);margin-bottom:8px;}
+    .card-text{font-size:13px;color:var(--muted);line-height:1.7;}
+    .contact-btn{background:var(--teal);color:#fff;font-size:13px;font-weight:700;padding:12px 24px;border-radius:20px;display:inline-block;margin-top:12px;}
+    .footer{background:var(--noche);padding:20px 20px 32px;}
+    .footer-links{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:10px;}
+    .footer-link{color:var(--espuma);font-size:11px;opacity:0.85;}
+    .footer-social{display:flex;gap:14px;margin-bottom:10px;}
+    .footer-social a{color:var(--espuma);font-size:20px;}
+    .footer-tagline{color:rgba(123,191,180,0.45);font-size:11px;}
+    [lang-en]{display:none;}body.en [lang-es]{display:none;}body.en [lang-en]{display:block;}span[lang-en]{display:none;}body.en span[lang-es]{display:none;}body.en span[lang-en]{display:inline;}
+  </style>
+</head>
+<body>
+<div class="container">
+  <nav class="nav">
+    <a href="/"><svg class="logo-svg" viewBox="0 0 200 52" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="wg" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#F5A623"/><stop offset="100%" stop-color="#D4763A"/></linearGradient></defs><path d="M97 7 Q100 5 103 7" fill="none" stroke="url(#wg)" stroke-width="5.5" stroke-linecap="round"/><path d="M91 14 Q100 7 109 14" fill="none" stroke="url(#wg)" stroke-width="5.5" stroke-linecap="round"/><path d="M85 21 Q100 10 115 21" fill="none" stroke="url(#wg)" stroke-width="6" stroke-linecap="round"/><rect x="94" y="21" width="12" height="20" rx="2.5" fill="#1A6B5C"/><rect x="95.5" y="23" width="9" height="14" rx="1.5" fill="#fff" opacity="0.92"/><circle cx="100" cy="39.5" r="1.2" fill="#fff"/><text x="6" y="44" font-family="Georgia,serif" font-weight="700" font-size="24" fill="#1C2B3A">Plaza</text><text x="113" y="44" font-family="Georgia,serif" font-weight="700" font-size="24" fill="#1C2B3A">Movil</text></svg></a>
+    <button class="nav-lang" onclick="toggleLang()"><span lang-es>EN</span><span lang-en>ES</span></button>
+  </nav>
+  <section class="hero">
+    <a href="/" class="hero-back">← <span lang-es>Inicio</span><span lang-en>Home</span></a>
+    <h1 class="hero-title"><span lang-es>Acerca de Plaza Movil</span><span lang-en>About Plaza Movil</span></h1>
+    <p class="hero-sub"><span lang-es>El directorio local que conecta a los negocios de Progreso con su comunidad.</span><span lang-en>The local directory connecting Progreso businesses with their community.</span></p>
+  </section>
+  <svg class="wave" viewBox="0 0 480 20" preserveAspectRatio="none"><path d="M0 0 Q120 20 240 10 Q360 0 480 15 L480 0 Z" fill="#1A6B5C"/><path d="M0 20 L480 20 L480 15 Q360 0 240 10 Q120 20 0 0 Z" fill="#F5EBD9"/></svg>
+  <main class="body">
+    <div class="card"><div class="card-icon">🌊</div><div class="card-title"><span lang-es>Nuestra mision</span><span lang-en>Our mission</span></div><p class="card-text"><span lang-es>Plaza Movil nacio para conectar a los negocios locales de Progreso, Yucatan con su comunidad — residentes, expats, snowbirds y visitantes. Queremos que encontrar un negocio local sea tan facil como un tap en tu telefono.</span><span lang-en>Plaza Movil was born to connect local businesses in Progreso, Yucatan with their community — residents, expats, snowbirds and visitors. We want finding a local business to be as easy as a tap on your phone.</span></p></div>
+    <div class="card"><div class="card-icon">📱</div><div class="card-title"><span lang-es>Disenado para Progreso</span><span lang-en>Designed for Progreso</span></div><p class="card-text"><span lang-es>Somos un directorio 100% local, bilingue (Espanol e Ingles), disenado para funcionar perfectamente en tu celular. Sin apps que descargar — solo abre el navegador y encuentra lo que necesitas.</span><span lang-en>We are a 100% local, bilingual (Spanish and English) directory, designed to work perfectly on your phone. No apps to download — just open your browser and find what you need.</span></p></div>
+    <div class="card"><div class="card-icon">📧</div><div class="card-title"><span lang-es>Contactanos</span><span lang-en>Contact us</span></div><p class="card-text"><span lang-es>Tienes preguntas? Quieres registrar tu negocio? Escribenos!</span><span lang-en>Have questions? Want to list your business? Write to us!</span></p><a href="mailto:hola.plazamovil@gmail.com" class="contact-btn">hola.plazamovil@gmail.com</a></div>
+  </main>
+  <footer class="footer">
+    <nav class="footer-links"><a href="/" class="footer-link"><span lang-es>Inicio</span><span lang-en>Home</span></a><a href="/categorias.html" class="footer-link"><span lang-es>Categorias</span><span lang-en>Categories</span></a><a href="/terminos.html" class="footer-link"><span lang-es>Terminos</span><span lang-en>Terms</span></a><a href="/privacidad.html" class="footer-link"><span lang-es>Privacidad</span><span lang-en>Privacy</span></a></nav>
+    <div class="footer-social"><a href="https://facebook.com/plazamovilprogreso" target="_blank">📘</a><a href="https://instagram.com/plazamovilprogreso" target="_blank">📸</a></div>
+    <p class="footer-tagline">Descubre lo mejor de Progreso 🌊</p>
+  </footer>
+</div>
+<script>
+  let currentLang=localStorage.getItem('pm-lang')||'es';
+  function applyLang(lang){currentLang=lang;document.body.classList.toggle('en',lang==='en');document.documentElement.lang=lang==='en'?'en':'es';localStorage.setItem('pm-lang',lang);}
+  function toggleLang(){applyLang(currentLang==='es'?'en':'es');}
+  applyLang(currentLang);
+</script>
+</body>
+</html>

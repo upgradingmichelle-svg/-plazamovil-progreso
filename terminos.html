@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terminos de Uso — Plaza Movil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{--teal:#1A6B5C;--henequen:#D4763A;--arena:#F5EBD9;--noche:#1C2B3A;--espuma:#7BBFB4;--white:#FFFFFF;--muted:#888780;--border:rgba(212,118,58,0.10);--font-display:"Playfair Display",Georgia,serif;--font-body:"Inter",sans-serif;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:var(--font-body);background:var(--arena);color:var(--noche);-webkit-font-smoothing:antialiased;}
+    a{color:inherit;text-decoration:none;}.container{max-width:480px;margin:0 auto;}
+    .nav{background:var(--white);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo-svg{height:36px;width:auto;}
+    .nav-lang{background:var(--arena);color:var(--henequen);font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;cursor:pointer;border:none;}
+    .hero{background:var(--noche);padding:28px 20px 36px;}
+    .hero-back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.6);font-size:12px;margin-bottom:14px;}
+    .hero-title{font-family:var(--font-display);font-size:24px;color:#fff;margin-bottom:8px;}
+    .hero-sub{color:rgba(255,255,255,0.6);font-size:12px;}
+    .wave{display:block;width:100%;margin-top:-1px;}
+    .body{padding:20px 16px;}
+    .section{background:var(--white);border-radius:14px;padding:18px;margin-bottom:12px;border:1px solid var(--border);}
+    .sec-title{font-size:14px;font-weight:700;color:var(--noche);margin-bottom:8px;}
+    .sec-text{font-size:12px;color:var(--muted);line-height:1.8;}
+    .footer{background:var(--noche);padding:20px 20px 32px;}
+    .footer-links{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:10px;}
+    .footer-link{color:var(--espuma);font-size:11px;opacity:0.85;}
+    .footer-tagline{color:rgba(123,191,180,0.45);font-size:11px;}
+    [lang-en]{display:none;}body.en [lang-es]{display:none;}body.en [lang-en]{display:block;}span[lang-en]{display:none;}body.en span[lang-es]{display:none;}body.en span[lang-en]{display:inline;}
+  </style>
+</head>
+<body>
+<div class="container">
+  <nav class="nav">
+    <a href="/"><svg class="logo-svg" viewBox="0 0 200 52" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="wg" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#F5A623"/><stop offset="100%" stop-color="#D4763A"/></linearGradient></defs><path d="M97 7 Q100 5 103 7" fill="none" stroke="url(#wg)" stroke-width="5.5" stroke-linecap="round"/><path d="M91 14 Q100 7 109 14" fill="none" stroke="url(#wg)" stroke-width="5.5" stroke-linecap="round"/><path d="M85 21 Q100 10 115 21" fill="none" stroke="url(#wg)" stroke-width="6" stroke-linecap="round"/><rect x="94" y="21" width="12" height="20" rx="2.5" fill="#1A6B5C"/><rect x="95.5" y="23" width="9" height="14" rx="1.5" fill="#fff" opacity="0.92"/><circle cx="100" cy="39.5" r="1.2" fill="#fff"/><text x="6" y="44" font-family="Georgia,serif" font-weight="700" font-size="24" fill="#1C2B3A">Plaza</text><text x="113" y="44" font-family="Georgia,serif" font-weight="700" font-size="24" fill="#1C2B3A">Movil</text></svg></a>
+    <button class="nav-lang" onclick="toggleLang()"><span lang-es>EN</span><span lang-en>ES</span></button>
+  </nav>
+  <section class="hero">
+    <a href="/" class="hero-back">← <span lang-es>Inicio</span><span lang-en>Home</span></a>
+    <h1 class="hero-title"><span lang-es>Terminos de Uso</span><span lang-en>Terms of Use</span></h1>
+    <p class="hero-sub"><span lang-es>Ultima actualizacion: Junio 2026</span><span lang-en>Last updated: June 2026</span></p>
+  </section>
+  <svg class="wave" viewBox="0 0 480 20" preserveAspectRatio="none"><path d="M0 0 Q120 20 240 10 Q360 0 480 15 L480 0 Z" fill="#1C2B3A"/><path d="M0 20 L480 20 L480 15 Q360 0 240 10 Q120 20 0 0 Z" fill="#F5EBD9"/></svg>
+  <main class="body">
+    <div class="section"><div class="sec-title"><span lang-es>1. Uso del directorio</span><span lang-en>1. Use of the directory</span></div><p class="sec-text"><span lang-es>Plaza Movil es un directorio de negocios locales de Progreso, Yucatan. Al usar este sitio, aceptas usarlo unicamente para buscar negocios locales de manera legal y respetuosa.</span><span lang-en>Plaza Movil is a local business directory for Progreso, Yucatan. By using this site, you agree to use it only to search for local businesses in a legal and respectful manner.</span></p></div>
+    <div class="section"><div class="sec-title"><span lang-es>2. Listados de negocios</span><span lang-en>2. Business listings</span></div><p class="sec-text"><span lang-es>Los negocios listados en Plaza Movil son responsables de la exactitud de su propia informacion. Plaza Movil no garantiza la disponibilidad ni la calidad de los servicios listados.</span><span lang-en>Businesses listed on Plaza Movil are responsible for the accuracy of their own information. Plaza Movil does not guarantee the availability or quality of listed services.</span></p></div>
+    <div class="section"><div class="sec-title"><span lang-es>3. Contacto por WhatsApp</span><span lang-en>3. WhatsApp contact</span></div><p class="sec-text"><span lang-es>Los botones de WhatsApp en este sitio conectan directamente con los negocios. Plaza Movil no es responsable de las conversaciones o transacciones entre usuarios y negocios.</span><span lang-en>WhatsApp buttons on this site connect directly to businesses. Plaza Movil is not responsible for conversations or transactions between users and businesses.</span></p></div>
+    <div class="section"><div class="sec-title"><span lang-es>4. Cambios al sitio</span><span lang-en>4. Changes to the site</span></div><p class="sec-text"><span lang-es>Plaza Movil se reserva el derecho de modificar, suspender o eliminar cualquier contenido o listado en cualquier momento sin previo aviso.</span><span lang-en>Plaza Movil reserves the right to modify, suspend or remove any content or listing at any time without prior notice.</span></p></div>
+    <div class="section"><div class="sec-title"><span lang-es>5. Contacto</span><span lang-en>5. Contact</span></div><p class="sec-text"><span lang-es>Para preguntas sobre estos terminos escribe a: hola.plazamovil@gmail.com</span><span lang-en>For questions about these terms write to: hola.plazamovil@gmail.com</span></p></div>
+  </main>
+  <footer class="footer">
+    <nav class="footer-links"><a href="/" class="footer-link"><span lang-es>Inicio</span><span lang-en>Home</span></a><a href="/privacidad.html" class="footer-link"><span lang-es>Privacidad</span><span lang-en>Privacy</span></a></nav>
+    <p class="footer-tagline">Descubre lo mejor de Progreso 🌊</p>
+  </footer>
+</div>
+<script>let currentLang=localStorage.getItem('pm-lang')||'es';function applyLang(lang){currentLang=lang;document.body.classList.toggle('en',lang==='en');localStorage.setItem('pm-lang',lang);}function toggleLang(){applyLang(currentLang==='es'?'en':'es');}applyLang(currentLang);</script>
+</body>
+</html>
