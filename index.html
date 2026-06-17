@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Plaza Móvil — El directorio local de Progreso, Yucatán. Encuentra restaurantes, servicios, tiendas y más." />
+  <title>Plaza Móvil — Descubre lo mejor de Progreso</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===================== TOKENS ===================== */
+    :root {
+      --teal:     #1A6B5C;
+      --henequen: #D4763A;
+      --arena:    #F5EBD9;
+      --noche:    #1C2B3A;
+      --coral:    #E8845F;
+      --espuma:   #7BBFB4;
+      --white:    #FFFFFF;
+      --cream:    #FFFAF5;
+      --text:     #1C2B3A;
+      --muted:    #888780;
+      --border:   rgba(212,118,58,0.10);
+      --radius-sm: 10px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'Inter', sans-serif;
+    }
+
+    /* ===================== RESET ===================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--arena);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: var(--font-body); cursor: pointer; border: none; background: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ===================== LAYOUT ===================== */
+    .container { max-width: 480px; margin: 0 auto; }
+
+    /* ===================== NAV ===================== */
+    .nav {
+      background: var(--white);
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .logo-svg { height: 36px; width: auto; }
+    .nav-lang {
+      background: var(--arena);
+      color: var(--henequen);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .nav-lang:hover { background: #eedfc8; }
+
+    /* ===================== HERO ===================== */
+    .hero {
+      background: linear-gradient(150deg, #D4763A 0%, #BF5A20 100%);
+      padding: 28px 20px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      right: -30px; top: -30px;
+      width: 160px; height: 160px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: 40px; bottom: -40px;
+      width: 100px; height: 100px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255,255,255,0.18);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 30px;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .hero-title span { color: #FFE0C8; }
+    .hero-sub {
+      color: rgba(255,255,255,0.82);
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+    .search-bar {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 13px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+      position: relative;
+      z-index: 1;
+    }
+    .search-bar input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--text);
+      background: transparent;
+    }
+    .search-bar input::placeholder { color: var(--muted); }
+    .search-icon { color: var(--henequen); font-size: 18px; flex-shrink: 0; }
+    .search-btn {
+      background: var(--henequen);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .search-btn:hover { background: #BF5A20; }
+
+    /* ===================== WAVE ===================== */
+    .wave { display: block; width: 100%; margin-top: -1px; }
+
+    /* ===================== BODY ===================== */
+    .body { background: var(--arena); padding: 0 16px; }
+
+    /* ===================== DELIVERY BANNER ===================== */
+    .delivery {
+      background: var(--teal);
+      border-radius: var(--radius-lg);
+      padding: 16px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: -20px 0 24px;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 6px 20px rgba(26,107,92,0.25);
+    }
+    .delivery-left {}
+    .delivery-title {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+    .delivery-sub {
+      color: rgba(255,255,255,0.72);
+      font-size: 11px;
+    }
+    .delivery-btn {
+      background: #fff;
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 9px 16px;
+      border-radius: var(--radius-sm);
+      white-space: nowrap;
+      transition: opacity 0.2s;
+      cursor: pointer;
+    }
+    .delivery-btn:hover { opacity: 0.9; }
+
+    /* ===================== SECTION HEADER ===================== */
+    .sec-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .sec-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--noche);
+    }
+    .sec-more {
+      font-size: 12px;
+      color: var(--henequen);
+      font-weight: 600;
+    }
+    .section { margin-bottom: 24px; }
+
+    /* ===================== CATEGORY GRID ===================== */
+    .cats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+    .cat {
+      background: var(--white);
+      border-radius: var(--radius-sm);
+      padding: 12px 4px 10px;
+      text-align: center;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .cat:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(212,118,58,0.12);
+    }
+    .cat:active { transform: scale(0.97); }
+    .cat-icon { font-size: 24px; line-height: 1; }
+    .cat-label {
+      font-size: 10px;
+      color: var(--noche);
+      font-weight: 500;
+      margin-top: 6px;
+      line-height: 1.2;
+    }
+
+    /* ===================== DIVIDER ===================== */
+    .divider {
+      height: 1px;
+      background: rgba(28,43,58,0.08);
+      margin: 0 0 20px;
+    }
+
+    /* ===================== BUSINESS CARDS ===================== */
+    .biz-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 13px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+      border: 1px solid rgba(28,43,58,0.06);
+      transition: box-shadow 0.2s;
+      cursor: pointer;
+    }
+    .biz-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+    .biz-photo {
+      width: 50px;
+      height: 50px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      flex-shrink: 0;
+    }
+    .biz-info { flex: 1; min-width: 0; }
+    .biz-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--noche);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .biz-meta {
+      font-size: 11px;
+      color: var(--muted);
+      margin: 3px 0;
+    }
+    .biz-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 4px;
+      flex-wrap: wrap;
+    }
+    .stars { color: var(--henequen); font-size: 11px; }
+    .rating { font-size: 11px; color: var(--muted); }
+    .badge {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 8px;
+    }
+    .badge-dest { background: #FFF0E6; color: var(--henequen); }
+    .badge-ver  { background: #E6F5F1; color: var(--teal); }
+    .badge-new  { background: #EEEDE8; color: #666; }
+    .wa-btn {
+      background: var(--teal);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background 0.2s;
+      cursor: pointer;
+    }
+    .wa-btn:hover { background: #145a4c; }
+
+    /* ===================== VENDOR CTA ===================== */
+    .vendor {
+      background: linear-gradient(135deg, var(--noche) 0%, #2A3D52 100%);
+      border-radius: var(--radius-lg);
+      padding: 24px 20px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .vendor-icon { font-size: 32px; margin-bottom: 8px; }
+    .vendor-title {
+      font-family: var(--font-display);
+      color: #fff;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+    .vendor-sub {
+      color: var(--espuma);
+      font-size: 12px;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .vendor-btn {
+      background: var(--henequen);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 13px 28px;
+      border-radius: 24px;
+      display: inline-block;
+      transition: background 0.2s, transform 0.15s;
+      cursor: pointer;
+    }
+    .vendor-btn:hover {
+      background: #BF5A20;
+      transform: translateY(-1px);
+    }
+
+    /* ===================== FOOTER ===================== */
+    .footer {
+      background: var(--noche);
+      padding: 20px 20px 32px;
+    }
+    .footer-logo { margin-bottom: 14px; }
+    .footer-logo .logo-svg { height: 30px; opacity: 0.9; }
+    .footer-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .footer-link {
+      color: var(--espuma);
+      font-size: 11px;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+    .footer-link:hover { opacity: 1; }
+    .footer-social {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .footer-social a {
+      color: var(--espuma);
+      font-size: 20px;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+    .footer-social a:hover { opacity: 1; }
+    .footer-tagline {
+      color: rgba(123,191,180,0.45);
+      font-size: 11px;
+    }
+
+    /* ===================== LANGUAGE TOGGLE ===================== */
+    [lang-en] { display: none; }
+    body.en [lang-es] { display: none; }
+    body.en [lang-en] { display: block; }
+    span[lang-en] { display: none; }
+    body.en span[lang-es] { display: none; }
+    body.en span[lang-en] { display: inline; }
+
+    /* ===================== RESPONSIVE ===================== */
+    @media (max-width: 360px) {
+      .hero-title { font-size: 26px; }
+      .cats { gap: 6px; }
+      .cat-icon { font-size: 20px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav" role="banner">
+    <a href="/" class="nav-logo" aria-label="Plaza Móvil — Inicio">
+      <!-- LOGO SVG — phone + wifi arches in brand colours -->
+      <svg class="logo-svg" viewBox="0 0 200 52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="wifiGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#F5A623"/>
+            <stop offset="100%" stop-color="#D4763A"/>
+          </linearGradient>
+        </defs>
+        <!-- WiFi arches -->
+        <path d="M97 7 Q100 5 103 7" fill="none" stroke="url(#wifiGrad)" stroke-width="5.5" stroke-linecap="round"/>
+        <path d="M91 14 Q100 7 109 14" fill="none" stroke="url(#wifiGrad)" stroke-width="5.5" stroke-linecap="round"/>
+        <path d="M85 21 Q100 10 115 21" fill="none" stroke="url(#wifiGrad)" stroke-width="6" stroke-linecap="round"/>
+        <!-- Phone body -->
+        <rect x="94" y="21" width="12" height="20" rx="2.5" fill="#1A6B5C"/>
+        <rect x="95.5" y="23" width="9" height="14" rx="1.5" fill="#fff" opacity="0.92"/>
+        <circle cx="100" cy="39.5" r="1.2" fill="#fff"/>
+        <!-- Wordmark -->
+        <text x="6"   y="44" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="24" fill="#1C2B3A">Plaza</text>
+        <text x="113" y="44" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="24" fill="#1C2B3A">Movil</text>
+      </svg>
+    </a>
+    <button class="nav-lang" onclick="toggleLang()" aria-label="Cambiar idioma">
+      <span lang-es>EN</span>
+      <span lang-en>ES</span>
+    </button>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" aria-label="Bienvenida">
+    <div class="hero-tag">
+      📍 <span lang-es>180+ negocios en Progreso</span>
+          <span lang-en>180+ businesses in Progreso</span>
+    </div>
+    <h1 class="hero-title">
+      <span lang-es>Tu Progreso,<br><span>todo aquí.</span></span>
+      <span lang-en>Your Progreso,<br><span>all here.</span></span>
+    </h1>
+    <p class="hero-sub">
+      <span lang-es>El directorio local que estabas esperando 🌊</span>
+      <span lang-en>The local directory you've been waiting for 🌊</span>
+    </p>
+    <div class="search-bar" role="search">
+      <span class="search-icon" aria-hidden="true">🔍</span>
+      <input
+        type="search"
+        id="search"
+        placeholder-es="Restaurantes, servicios, tiendas..."
+        placeholder-en="Restaurants, services, stores..."
+        aria-label="Buscar negocios"
+      />
+      <button class="search-btn" onclick="doSearch()" aria-label="Buscar">
+        <span lang-es>Buscar</span>
+        <span lang-en>Search</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Wave -->
+  <svg class="wave" viewBox="0 0 480 24" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 0 Q120 24 240 12 Q360 0 480 18 L480 0 Z" fill="#BF5A20"/>
+    <path d="M0 24 L480 24 L480 18 Q360 0 240 12 Q120 24 0 0 Z" fill="#F5EBD9"/>
+  </svg>
+
+  <!-- ===== BODY ===== -->
+  <main class="body">
+
+    <!-- DELIVERY BANNER -->
+    <div class="delivery" role="region" aria-label="Servicio de delivery">
+      <div class="delivery-left">
+        <div class="delivery-title">
+          🛵 <span lang-es>Pide a domicilio</span>
+               <span lang-en>Order delivery</span>
+        </div>
+        <div class="delivery-sub">
+          <span lang-es>Comida · farmacia · mandados · más</span>
+          <span lang-en>Food · pharmacy · errands · more</span>
+        </div>
+      </div>
+      <button class="delivery-btn">
+        <span lang-es>Pedir ahora</span>
+        <span lang-en>Order now</span>
+      </button>
+    </div>
+
+    <!-- CATEGORIES -->
+    <section class="section" aria-label="Categorías">
+      <div class="sec-header">
+        <h2 class="sec-title">
+          <span lang-es>Explorar categorías</span>
+          <span lang-en>Browse categories</span>
+        </h2>
+        <a href="/categorias" class="sec-more">
+          <span lang-es>Ver todo →</span>
+          <span lang-en>See all →</span>
+        </a>
+      </div>
+      <div class="cats" role="list">
+        <div class="cat" role="listitem" onclick="goTo('restaurantes')">
+          <div class="cat-icon">🍽️</div>
+          <div class="cat-label"><span lang-es>Restaurantes</span><span lang-en>Restaurants</span></div>
+        </div>
+        <div class="cat" role="listitem" onclick="goTo('salud')">
+          <div class="cat-icon">💊</div>
+          <div class="cat-label"><span lang-es>Salud</span><span lang-en>Health</span></div>
+        </div>
+        <div class="cat" role="listitem" onclick="goTo('servicios')">
+          <div class="cat-icon">🔧</div>
+          <div class="cat-label"><span lang-es>Servicios</span><span lang-en>Services</span></div>
+        </div>
+        <div class="cat" role="listitem" onclick="goTo('tiendas')">
+          <div class="cat-icon">🛒</div>
+          <div class="cat-label"><span lang-es>Tiendas</span><span lang-en>Stores</span></div>
+        </div>
+        <div class="cat" role="listitem" onclick="goTo('belleza')">
+          <div class="cat-icon">✂️</div>
+          <div class="cat-label"><span lang-es>Belleza</span><span lang-en>Beauty</span></div>
+        </div>
+        <div class="cat" role="listitem" onclick="goTo('autos')">
+          <div class="cat-icon">🚗</div>
+          <div class="cat-label"><span lang-es>Autos</span><span lang-en>Autos</span></div>
+        </div>
+        <div class="cat" role="listitem" onclick="goTo('educacion')">
+          <div class="cat-icon">📚</div>
+          <div class="cat-label"><span lang-es>Educación</span><span lang-en>Education</span></div>
+        </div>
+        <div class="cat" role="listitem" onclick="goTo('categorias')">
+          <div class="cat-icon">＋</div>
+          <div class="cat-label"><span lang-es>Más</span><span lang-en>More</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- FEATURED LISTINGS -->
+    <section class="section" aria-label="Negocios destacados">
+      <div class="sec-header">
+        <h2 class="sec-title">
+          <span lang-es>Negocios destacados</span>
+          <span lang-en>Featured businesses</span>
+        </h2>
+        <a href="/negocios" class="sec-more">
+          <span lang-es>Ver más →</span>
+          <span lang-en>See more →</span>
+        </a>
+      </div>
+
+      <!-- Business 1 -->
+      <article class="biz-card" onclick="goTo('mariscos-el-puerto')">
+        <div class="biz-photo" style="background:#FFF0E6;" aria-hidden="true">🐟</div>
+        <div class="biz-info">
+          <div class="biz-name">Mariscos El Puerto</div>
+          <div class="biz-meta"><span lang-es>Restaurante · Malecón</span><span lang-en>Restaurant · Malecón</span></div>
+          <div class="biz-row">
+            <span class="stars" aria-label="4.5 estrellas">★★★★½</span>
+            <span class="rating">4.5</span>
+            <span class="badge badge-dest"><span lang-es>Destacado</span><span lang-en>Featured</span></span>
+          </div>
+        </div>
+        <button class="wa-btn" onclick="event.stopPropagation(); openWA('5219991234567','Mariscos El Puerto')" aria-label="Contactar por WhatsApp">
+          📱
+        </button>
+      </article>
+
+      <!-- Business 2 -->
+      <article class="biz-card" onclick="goTo('farmacia-san-rafael')">
+        <div class="biz-photo" style="background:#E6F5F1;" aria-hidden="true">💊</div>
+        <div class="biz-info">
+          <div class="biz-name">Farmacia San Rafael</div>
+          <div class="biz-meta"><span lang-es>Farmacia · Centro</span><span lang-en>Pharmacy · Centro</span></div>
+          <div class="biz-row">
+            <span class="stars" aria-label="5 estrellas">★★★★★</span>
+            <span class="rating">5.0</span>
+            <span class="badge badge-ver"><span lang-es>Verificado</span><span lang-en>Verified</span></span>
+          </div>
+        </div>
+        <button class="wa-btn" onclick="event.stopPropagation(); openWA('5219991234568','Farmacia San Rafael')" aria-label="Contactar por WhatsApp">
+          📱
+        </button>
+      </article>
+
+      <!-- Business 3 -->
+      <article class="biz-card" onclick="goTo('ferreteria-lopez')">
+        <div class="biz-photo" style="background:#F0EDE6;" aria-hidden="true">🔨</div>
+        <div class="biz-info">
+          <div class="biz-name">Ferretería López</div>
+          <div class="biz-meta"><span lang-es>Ferretería · Calle 80</span><span lang-en>Hardware · Calle 80</span></div>
+          <div class="biz-row">
+            <span class="stars" aria-label="4 estrellas">★★★★</span>
+            <span class="rating">4.0</span>
+            <span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span>
+          </div>
+        </div>
+        <button class="wa-btn" onclick="event.stopPropagation(); openWA('5219991234569','Ferretería López')" aria-label="Contactar por WhatsApp">
+          📱
+        </button>
+      </article>
+
+    </section>
+
+    <!-- VENDOR CTA -->
+    <div class="vendor" role="complementary" aria-label="Registra tu negocio">
+      <div class="vendor-icon">🏪</div>
+      <h2 class="vendor-title">
+        <span lang-es>¿Tu negocio está aquí?</span>
+        <span lang-en>Is your business here?</span>
+      </h2>
+      <p class="vendor-sub">
+        <span lang-es>Únete gratis — miles de personas<br>te están buscando en Progreso</span>
+        <span lang-en>Join free — thousands of people<br>are searching for you in Progreso</span>
+      </p>
+      <a href="/registrar" class="vendor-btn">
+        <span lang-es>Registra tu negocio gratis</span>
+        <span lang-en>List your business free</span>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-logo">
+      <svg class="logo-svg" viewBox="0 0 200 52" xmlns="http://www.w3.org/2000/svg" aria-label="Plaza Móvil">
+        <defs>
+          <linearGradient id="wifiGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#F5A623"/>
+            <stop offset="100%" stop-color="#D4763A"/>
+          </linearGradient>
+        </defs>
+        <path d="M97 7 Q100 5 103 7" fill="none" stroke="url(#wifiGrad2)" stroke-width="5.5" stroke-linecap="round"/>
+        <path d="M91 14 Q100 7 109 14" fill="none" stroke="url(#wifiGrad2)" stroke-width="5.5" stroke-linecap="round"/>
+        <path d="M85 21 Q100 10 115 21" fill="none" stroke="url(#wifiGrad2)" stroke-width="6" stroke-linecap="round"/>
+        <rect x="94" y="21" width="12" height="20" rx="2.5" fill="#7BBFB4"/>
+        <rect x="95.5" y="23" width="9" height="14" rx="1.5" fill="#1C2B3A" opacity="0.5"/>
+        <circle cx="100" cy="39.5" r="1.2" fill="#7BBFB4"/>
+        <text x="6"   y="44" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="24" fill="#F5EBD9">Plaza</text>
+        <text x="113" y="44" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="24" fill="#F5EBD9">Movil</text>
+      </svg>
+    </div>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="/categorias" class="footer-link"><span lang-es>Categorías</span><span lang-en>Categories</span></a>
+      <a href="/delivery"   class="footer-link"><span lang-es>Delivery</span><span lang-en>Delivery</span></a>
+      <a href="/nosotros"   class="footer-link"><span lang-es>Acerca de</span><span lang-en>About</span></a>
+      <a href="/contacto"   class="footer-link"><span lang-es>Contacto</span><span lang-en>Contact</span></a>
+      <a href="/terminos"   class="footer-link"><span lang-es>Términos</span><span lang-en>Terms</span></a>
+      <a href="/privacidad" class="footer-link"><span lang-es>Privacidad</span><span lang-en>Privacy</span></a>
+    </nav>
+    <div class="footer-social">
+      <a href="https://facebook.com/plazamovilprogreso" target="_blank" rel="noopener" aria-label="Facebook">📘</a>
+      <a href="https://instagram.com/plazamovilprogreso" target="_blank" rel="noopener" aria-label="Instagram">📸</a>
+    </div>
+    <p class="footer-tagline">
+      <span lang-es>Descubre lo mejor de Progreso 🌊</span>
+      <span lang-en>Discover the best of Progreso 🌊</span>
+    </p>
+  </footer>
+
+</div><!-- /container -->
+
+<script>
+  // ===== LANGUAGE TOGGLE =====
+  let currentLang = localStorage.getItem('pm-lang') || 'es';
+
+  function applyLang(lang) {
+    currentLang = lang;
+    document.body.classList.toggle('en', lang === 'en');
+    document.documentElement.lang = lang === 'en' ? 'en' : 'es';
+    localStorage.setItem('pm-lang', lang);
+    // Update search placeholder
+    const input = document.getElementById('search');
+    if (input) {
+      input.placeholder = lang === 'en'
+        ? input.getAttribute('placeholder-en')
+        : input.getAttribute('placeholder-es');
+    }
+  }
+
+  function toggleLang() {
+    applyLang(currentLang === 'es' ? 'en' : 'es');
+  }
+
+  // ===== SEARCH =====
+  function doSearch() {
+    const q = document.getElementById('search').value.trim();
+    if (q) window.location.href = '/buscar?q=' + encodeURIComponent(q);
+  }
+
+  document.getElementById('search').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') doSearch();
+  });
+
+  // ===== NAVIGATION =====
+  function goTo(slug) {
+    window.location.href = '/' + slug;
+  }
+
+  // ===== WHATSAPP =====
+  function openWA(number, name) {
+    const lang = currentLang;
+    const msg = lang === 'en'
+      ? 'Hi! I found you on Plaza Móvil and I have a question.'
+      : 'Hola! Te encontré en Plaza Móvil y tengo una pregunta.';
+    window.open('https://wa.me/' + number + '?text=' + encodeURIComponent(msg), '_blank');
+  }
+
+  // ===== INIT =====
+  applyLang(currentLang);
+</script>
+</body>
+</html>
