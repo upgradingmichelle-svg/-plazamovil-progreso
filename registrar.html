@@ -197,12 +197,18 @@
   }
   function toggleLang() { applyLang(currentLang === 'es' ? 'en' : 'es'); }
   function submitForm(e) {
-    e.preventDefault();
-    document.getElementById('register-form').style.display = 'none';
-    document.getElementById('success-msg').style.display = 'block';
-    const wa = 'https://wa.me/19059999999?text=' + encodeURIComponent(currentLang === 'en' ? 'Hi! I just submitted my business registration on Plaza Movil.' : 'Hola! Acabo de enviar el registro de mi negocio en Plaza Movil.');
-    setTimeout(() => window.open(wa, '_blank'), 1000);
-  }
+  e.preventDefault();
+  const form = document.getElementById('register-form');
+  const inputs = form.querySelectorAll('input,select,textarea');
+  const data = {};
+  inputs.forEach(i => { if(i.name) data[i.name] = i.value; });
+fetch('https://services.leadconnectorhq.com/hooks/tvDxEp1sQXymgmzT2EqX/webhook-trigger/JMZGwzxOIZkdqyEEUbWa', {    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(data)
+  });
+  document.getElementById('register-form').style.display = 'none';
+  document.getElementById('success-msg').style.display = 'block';
+}
   applyLang(currentLang);
 </script>
 </body>
