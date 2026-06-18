@@ -68,6 +68,7 @@
         <defs><linearGradient id="wg" x1="0%" x2="0%" y2="0%"><stop offset="0%" stop-color="#F5EA23"/><stop offset="100%" stop-color="#D4763A"/></linearGradient></defs>
         <path d="M97 7 Q100 5 103 7" fill="none" stroke="url(#wg)" stroke-width="5.5" stroke-linecap="round"/>
         <path d="M91 14 Q100 7 109 14" fill="none" stroke="url(#wg)" stroke-width="5.5" stroke-linecap="round"/>
+        <path d="M85 21 Q100 10 115 21" fill="none" stroke="url(#wg)" stroke-width="5.5" stroke-linecap="round"/>
         <path d="M85 21 Q100 10 115 21" fill="none" stroke="url(#wg)" stroke-width="6" stroke-linecap="round"/>
         <rect x="94" y="21" width="12" height="20" rx="2.5" fill="#1A6B5C"/>
         <rect x="95.5" y="23" width="9" height="14" rx="1.5" fill="#fff" opacity="0.92"/>
@@ -100,16 +101,15 @@
 
     <div class="form-card">
       <div class="form-title">Información de tu negocio</div>
-      <form id="register-form" onsubmit="submitForm(event)">
 
+      <div id="form-wrap">
         <div class="field">
           <label>Nombre del negocio *</label>
-          <input type="text" name="business_name" required placeholder="Ej: Mariscos El Puerto" />
+          <input type="text" id="business_name" required placeholder="Ej: Mariscos El Puerto" />
         </div>
-
         <div class="field">
           <label>Categoría *</label>
-          <select name="category" required>
+          <select id="category" required>
             <option value="">Selecciona una categoría</option>
             <option value="restaurantes">🍽 Restaurantes</option>
             <option value="salud">💊 Salud & Farmacias</option>
@@ -130,41 +130,33 @@
             <option value="turismo">🌴 Turismo & Tours</option>
           </select>
         </div>
-
         <div class="field">
           <label>Tu email *</label>
-          <input type="email" name="email" required placeholder="Ej: tunegocio@gmail.com" />
+          <input type="email" id="email" required placeholder="Ej: tunegocio@gmail.com" />
         </div>
-
         <div class="field">
           <label>Tu WhatsApp</label>
-          <input type="tel" name="whatsapp" placeholder="Ej: 999 123 4567" />
+          <input type="tel" id="whatsapp" placeholder="Ej: 999 123 4567" />
         </div>
-
         <div class="field">
           <label>Dirección en Progreso</label>
-          <input type="text" name="address" placeholder="Ej: Calle 80 x 31, Centro" />
+          <input type="text" id="address" placeholder="Ej: Calle 80 x 31, Centro" />
         </div>
-
         <div class="field">
           <label>Horario de atención</label>
-          <input type="text" name="hours" placeholder="Ej: Lun-Sab 9am-6pm" />
+          <input type="text" id="hours" placeholder="Ej: Lun-Sab 9am-6pm" />
         </div>
-
         <div class="field">
           <label>Descripción breve</label>
-          <textarea name="description" placeholder="Describe tu negocio en pocas palabras..."></textarea>
+          <textarea id="description" placeholder="Describe tu negocio en pocas palabras..."></textarea>
         </div>
-
         <div class="field">
           <label>Tu nombre</label>
-          <input type="text" name="owner_name" placeholder="Tu nombre completo" />
+          <input type="text" id="owner_name" placeholder="Tu nombre completo" />
         </div>
-
-        <button type="submit" class="submit-btn">Enviar mi registro gratis</button>
+        <button class="submit-btn" onclick="submitForm()">Enviar mi registro gratis</button>
         <p class="note">Te contactaremos por email para confirmar tu registro en menos de 24 horas.</p>
-
-      </form>
+      </div>
 
       <div class="success" id="success-msg">
         <div class="success-icon">🎉</div>
@@ -189,21 +181,42 @@
   </footer>
 
 </div>
+
 <script>
-  function submitForm(e) {
-    e.preventDefault();
-    const form = document.getElementById('register-form');
-    const inputs = form.querySelectorAll('input, select, textarea');
-    const data = {};
-    inputs.forEach(i => { if (i.name) data[i.name] = i.value; });
-    fetch('https://services.leadconnectorhq.com/hooks/tvDxEp1sQXymgmzT2EqX/webhook-trigger/JMZGwzxOIZkdqyEEUbWa', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    });
-    document.getElementById('register-form').style.display = 'none';
-    document.getElementById('success-msg').style.display = 'block';
+function submitForm() {
+  const business_name = document.getElementById('business_name').value;
+  const category = document.getElementById('category').value;
+  const email = document.getElementById('email').value;
+
+  if (!business_name || !category || !email) {
+    alert('Por favor completa los campos obligatorios: Nombre, Categoría y Email.');
+    return;
   }
+
+  const data = {
+    business_name: business_name,
+    category: category,
+    email: email,
+    whatsapp: document.getElementById('whatsapp').value,
+    address: document.getElementById('address').value,
+    hours: document.getElementById('hours').value,
+    description: document.getElementById('description').value,
+    owner_name: document.getElementById('owner_name').value
+  };
+
+  const img = new Image();
+  img.src = 'https://services.leadconnectorhq.com/hooks/tvDxEp1sQXymgmzT2EqX/webhook-trigger/JMZGwzxOIZkdqyEEUbWa?' + new URLSearchParams(data).toString();
+
+  fetch('https://services.leadconnectorhq.com/hooks/tvDxEp1sQXymgmzT2EqX/webhook-trigger/JMZGwzxOIZkdqyEEUbWa', {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  });
+
+  document.getElementById('form-wrap').style.display = 'none';
+  document.getElementById('success-msg').style.display = 'block';
+}
 </script>
 </body>
 </html>
