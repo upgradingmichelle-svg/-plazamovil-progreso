@@ -14,7 +14,7 @@
     body{font-family:var(--font-body);background:var(--arena);color:var(--noche);-webkit-font-smoothing:antialiased;}
     a{color:inherit;text-decoration:none;}
     .container{max-width:480px;margin:0 auto;}
-    .nav{background:var(--white);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .nav{background:var(--white);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10;}
     .logo-svg{height:36px;width:auto;}
     .nav-lang{background:var(--arena);color:var(--henequen);font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;cursor:pointer;border:none;}
     .hero{background:linear-gradient(150deg,#1A6B5C,#145a4c);padding:28px 20px 36px;}
@@ -32,26 +32,26 @@
     .form-title{font-size:15px;font-weight:700;color:var(--noche);margin-bottom:16px;}
     .field{margin-bottom:14px;}
     .field label{display:block;font-size:12px;font-weight:600;color:var(--noche);margin-bottom:5px;}
-    .field input,.field select,.field textarea{width:100%;border:1.5px solid rgba(28,43,58,0.12);border-radius:10px;padding:11px 13px;font-family:var(--font-body);font-size:13px;color:var(--noche);outline:none;transition:border-color 0.2s;background:var(--white);}
-    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--teal);}
+    .field input,.field select,.field textarea{width:100%;border:1.5px solid rgba(28,43,58,0.12);border-radius:10px;padding:11px 13px;font-family:var(--font-body);font-size:13px;color:var(--noche);background:var(--white);}
+    .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--teal);}
     .field textarea{height:80px;resize:vertical;}
     .submit-btn{background:var(--henequen);color:#fff;font-size:14px;font-weight:700;padding:14px;border-radius:20px;width:100%;border:none;cursor:pointer;transition:background 0.2s;}
     .submit-btn:hover{background:#BF5A20;}
     .note{font-size:11px;color:var(--muted);text-align:center;margin-top:10px;line-height:1.5;}
+    .success{display:none;background:#E6F5F1;border-radius:14px;padding:24px;text-align:center;margin-top:16px;}
+    .success-icon{font-size:40px;margin-bottom:10px;}
+    .success-title{font-size:16px;font-weight:700;color:var(--teal);margin-bottom:6px;}
+    .success-text{font-size:13px;color:var(--muted);line-height:1.6;}
     .footer{background:var(--noche);padding:20px 20px 32px;}
     .footer-links{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:10px;}
     .footer-link{color:var(--espuma);font-size:11px;opacity:0.85;}
     .footer-social{display:flex;gap:14px;margin-bottom:10px;}
     .footer-social a{color:var(--espuma);font-size:20px;}
     .footer-tagline{color:rgba(123,191,180,0.45);font-size:11px;}
-    .success{display:none;background:#E6F5F1;border-radius:14px;padding:24px;text-align:center;margin-top:16px;}
-    .success-icon{font-size:40px;margin-bottom:10px;}
-    .success-title{font-size:16px;font-weight:700;color:var(--teal);margin-bottom:6px;}
-    .success-text{font-size:13px;color:var(--muted);line-height:1.6;}
     [lang-en]{display:none;}
     body.en [lang-es]{display:none;}
     body.en [lang-en]{display:block;}
-    span[lang-en]{display:none;}
+    span[lang-es]{display:none;}
     body.en span[lang-es]{display:none;}
     body.en span[lang-en]{display:inline;}
   </style>
@@ -61,7 +61,7 @@
   <nav class="nav">
     <a href="/" aria-label="Plaza Movil">
       <svg class="logo-svg" viewBox="0 0 200 52" xmlns="http://www.w3.org/2000/svg">
-        <defs><linearGradient id="wg" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#F5A623"/><stop offset="100%" stop-color="#D4763A"/></linearGradient></defs>
+        <defs><linearGradient id="wg" x1="0%" x2="0%" y2="0%"><stop offset="0%" stop-color="#F5EA23"/><stop offset="100%" stop-color="#D4763A"/></linearGradient></defs>
         <path d="M97 7 Q100 5 103 7" fill="none" stroke="url(#wg)" stroke-width="5.5" stroke-linecap="round"/>
         <path d="M91 14 Q100 7 109 14" fill="none" stroke="url(#wg)" stroke-width="5.5" stroke-linecap="round"/>
         <path d="M85 21 Q100 10 115 21" fill="none" stroke="url(#wg)" stroke-width="6" stroke-linecap="round"/>
@@ -83,12 +83,11 @@
   </section>
 
   <svg class="wave" viewBox="0 0 480 20" preserveAspectRatio="none">
-    <path d="M0 0 Q120 20 240 10 Q360 0 480 15 L480 0 Z" fill="#145a4c"/>
+    <path d="M0 0 Q120 20 240 10 Q360 0 480 15 L480 20 L0 20 Z" fill="#145a4c"/>
     <path d="M0 20 L480 20 L480 15 Q360 0 240 10 Q120 20 0 0 Z" fill="#F5EBD9"/>
   </svg>
 
   <main class="body">
-
     <div class="benefits">
       <div class="benefit"><div class="benefit-icon">✅</div><div class="benefit-text"><span lang-es>100% Gratis</span><span lang-en>100% Free</span></div></div>
       <div class="benefit"><div class="benefit-icon">📱</div><div class="benefit-text"><span lang-es>En tu WhatsApp</span><span lang-en>On your WhatsApp</span></div></div>
@@ -102,69 +101,76 @@
 
         <div class="field">
           <label><span lang-es>Nombre del negocio *</span><span lang-en>Business name *</span></label>
-          <input type="text" required placeholder-es="Ej: Mariscos El Puerto" placeholder-en="E.g.: Mariscos El Puerto" />
+          <input type="text" name="business_name" required placeholder-es="Ej: Mariscos El Puerto" placeholder-en="E.g.: Mariscos El Puerto" />
         </div>
 
         <div class="field">
           <label><span lang-es>Categoría *</span><span lang-en>Category *</span></label>
-          <select required>
+          <select name="category" required>
             <option value=""><span lang-es>Selecciona una categoría</span></option>
-            <option value="restaurantes">🍽️ Restaurantes</option>
-            <option value="salud">💊 Salud & Farmacias</option>
+            <option value="restaurantes">🍽 Restaurantes</option>
+            <option value="salud">💊 Salud &amp; Farmacias</option>
             <option value="servicios">🔧 Servicios del Hogar</option>
-            <option value="tiendas">🛒 Tiendas & Mercados</option>
-            <option value="belleza">✂️ Belleza & Spa</option>
-            <option value="autos">🚗 Autos & Motos</option>
+            <option value="tiendas">🏪 Tiendas &amp; Mercados</option>
+            <option value="belleza">✂️ Belleza &amp; Spa</option>
+            <option value="autos">🚗 Autos &amp; Motos</option>
             <option value="educacion">📚 Educación</option>
             <option value="hospedaje">🏨 Hospedaje</option>
-            <option value="deportes">⚽ Deportes & Fitness</option>
-            <option value="entretenimiento">🎭 Entretenimiento</option>
+            <option value="deportes">⚽ Deportes &amp; Fitness</option>
+            <option value="entretenimiento">🎉 Entretenimiento</option>
             <option value="mascotas">🐾 Mascotas</option>
             <option value="tecnologia">💻 Tecnología</option>
-            <option value="construccion">🏗️ Construcción</option>
-            <option value="ropa">👗 Ropa & Moda</option>
+            <option value="construccion">🏗 Construcción</option>
+            <option value="ropa">👗 Ropa &amp; Moda</option>
             <option value="profesionales">💼 Servicios Profesionales</option>
-            <option value="eventos">🎉 Eventos & Fiestas</option>
-            <option value="turismo">🌊 Turismo & Tours</option>
+            <option value="eventos">🎊 Eventos &amp; Fiestas</option>
+            <option value="turismo">🌴 Turismo &amp; Tours</option>
           </select>
         </div>
 
-      <div class="field">
-  <label><span lang-es>Tu email *</span><span lang-en>Your email *</span></label>
-  <input type="email" name="email" required placeholder-es="Ej: tunegocio@gmail.com" placeholder-en="E.g.: yourbusiness@gmail.com" />
-</div>
+        <div class="field">
+          <label><span lang-es>Tu email *</span><span lang-en>Your email *</span></label>
+          <input type="email" name="email" required placeholder-es="Ej: tunegocio@gmail.com" placeholder-en="E.g.: yourbusiness@gmail.com" />
+        </div>
+
+        <div class="field">
+          <label><span lang-es>Tu WhatsApp</span><span lang-en>Your WhatsApp</span></label>
+          <input type="tel" name="whatsapp" placeholder-es="Ej: 999 123 4567" placeholder-en="E.g.: 999 123 4567" />
+        </div>
 
         <div class="field">
           <label><span lang-es>Dirección en Progreso</span><span lang-en>Address in Progreso</span></label>
-        <input type="text" name="address" placeholder-es="Ej: Calle 80 x 31, Centro" placeholder-en="E.g.: Calle 80 x 31, Centro" />
+          <input type="text" name="address" placeholder-es="Ej: Calle 80 x 31, Centro" placeholder-en="E.g.: Calle 80 x 31, Centro" />
+        </div>
 
         <div class="field">
           <label><span lang-es>Horario de atención</span><span lang-en>Business hours</span></label>
-      
-        <input type="text" name="hours" placeholder-es="Ej: Lun-Sab 9am-6pm" placeholder-en="E.g.: Mon-Sat 9am-6pm" />
+          <input type="text" name="hours" placeholder-es="Ej: Lun-Sab 9am-6pm" placeholder-en="E.g.: Mon-Sat 9am-6pm" />
+        </div>
 
         <div class="field">
           <label><span lang-es>Descripción breve</span><span lang-en>Brief description</span></label>
-         
-<textarea name="description" placeholder-es="Describe tu negocio en pocas palabras..." placeholder-en="Describe your business briefly..."></textarea>
+          <textarea name="description" placeholder-es="Describe tu negocio en pocas palabras..." placeholder-en="Describe your business briefly..."></textarea>
+        </div>
+
         <div class="field">
           <label><span lang-es>Tu nombre</span><span lang-en>Your name</span></label>
-         
-      <input type="text" name="owner_name" placeholder-es="Tu nombre completo" placeholder-en="Your full name" />
+          <input type="text" name="owner_name" placeholder-es="Tu nombre completo" placeholder-en="Your full name" />
+        </div>
 
         <button type="submit" class="submit-btn">
           <span lang-es>Enviar mi registro gratis</span>
           <span lang-en>Submit my free listing</span>
         </button>
-      
-      <p class="note"><span lang-es>Te contactaremos por email para confirmar tu registro en menos de 24 horas.</span><span lang-en>We will contact you via email to confirm your listing within 24 hours.</span></p>
+        <p class="note"><span lang-es>Te contactaremos por email para confirmar tu registro en menos de 24 horas.</span><span lang-en>We will contact you via email to confirm your listing within 24 hours.</span></p>
+      </form>
 
       <div class="success" id="success-msg">
         <div class="success-icon">🎉</div>
-        <div class="success-title"><span lang-es>Recibimos tu registro!</span><span lang-en>We got your registration!</span></div>
-<p class="success-text"><span lang-es>Te contactaremos por email pronto para confirmar y publicar tu negocio en Plaza Móvil.</span><span lang-en>We will contact you via email to confirm and publish your business on Plaza Móvil.</span></p>      </div>
+        <div class="success-title"><span lang-es>¡Recibimos tu registro!</span><span lang-en>We got your registration!</span></div>
+        <p class="success-text"><span lang-es>Te contactaremos por email pronto para confirmar y publicar tu negocio en Plaza Móvil.</span><span lang-en>We will contact you via email to confirm and publish your business on Plaza Móvil.</span></p>
+      </div>
     </div>
-
   </main>
 
   <footer class="footer">
@@ -176,13 +182,15 @@
     </nav>
     <div class="footer-social">
       <a href="https://facebook.com/plazamovilprogreso" target="_blank">📘</a>
-      <a href="https://instagram.com/plazamovilprogreso" target="_blank">📸</a>
+      <a href="https://instagram.com/plazamovilprogreso" target="_blank">📷</a>
     </div>
     <p class="footer-tagline">Descubre lo mejor de Progreso 🌊</p>
   </footer>
 </div>
+
 <script>
   let currentLang = localStorage.getItem('pm-lang') || 'es';
+
   function applyLang(lang) {
     currentLang = lang;
     document.body.classList.toggle('en', lang === 'en');
@@ -192,20 +200,24 @@
       el.placeholder = lang === 'en' ? el.getAttribute('placeholder-en') : el.getAttribute('placeholder-es');
     });
   }
+
   function toggleLang() { applyLang(currentLang === 'es' ? 'en' : 'es'); }
+
   function submitForm(e) {
-  e.preventDefault();
-  const form = document.getElementById('register-form');
-  const inputs = form.querySelectorAll('input,select,textarea');
-  const data = {};
-  inputs.forEach(i => { if(i.name) data[i.name] = i.value; });
-fetch('https://services.leadconnectorhq.com/hooks/tvDxEp1sQXymgmzT2EqX/webhook-trigger/JMZGwzxOIZkdqyEEUbWa', {    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(data)
-  });
-  document.getElementById('register-form').style.display = 'none';
-  document.getElementById('success-msg').style.display = 'block';
-}
+    e.preventDefault();
+    const form = document.getElementById('register-form');
+    const inputs = form.querySelectorAll('input,select,textarea');
+    const data = {};
+    inputs.forEach(i => { if(i.name) data[i.name] = i.value; });
+    fetch('https://services.leadconnectorhq.com/hooks/tvDxEp1sQXymgmzT2EqX/webhook-trigger/JMZGwzxOIZkdqyEEUbWa', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    });
+    document.getElementById('register-form').style.display = 'none';
+    document.getElementById('success-msg').style.display = 'block';
+  }
+
   applyLang(currentLang);
 </script>
 </body>
