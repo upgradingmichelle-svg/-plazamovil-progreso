@@ -9,51 +9,55 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    :root{--teal:#1A6B5C;--henequen:#D4763A;--arena:#F5EBD9;--noche:#1C2B3A;--espuma:#7BBFB4;--white:#FFFFFF;--muted:#888780;--border:rgba(212,118,58,0.10);--font-display:"Playfair Display",Georgia,serif;--font-body:"Inter",sans-serif;}
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:var(--font-body);background:var(--arena);color:var(--noche);-webkit-font-smoothing:antialiased;}
-    a{color:inherit;text-decoration:none;}
-    .container{max-width:480px;margin:0 auto;}
-    .nav{background:var(--white);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10;}
-    .logo-svg{height:36px;width:auto;}
-    .nav-lang{background:var(--arena);color:var(--henequen);font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;cursor:pointer;border:none;}
-    .hero{background:linear-gradient(150deg,#1A6B5C,#145a4c);padding:28px 20px 36px;}
-    .hero-back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.75);font-size:12px;margin-bottom:14px;}
-    .hero-icon{font-size:36px;margin-bottom:10px;display:block;}
-    .hero-title{font-family:var(--font-display);font-size:26px;color:#fff;line-height:1.2;margin-bottom:8px;}
-    .hero-sub{color:rgba(255,255,255,0.8);font-size:13px;line-height:1.6;}
-    .wave{display:block;width:100%;margin-top:-1px;}
-    .body{background:var(--arena);padding:20px 16px;}
-    .benefits{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;}
-    .benefit{background:var(--white);border-radius:12px;padding:14px 12px;text-align:center;border:1px solid var(--border);}
-    .benefit-icon{font-size:24px;margin-bottom:6px;}
-    .benefit-text{font-size:11px;font-weight:600;color:var(--noche);}
-    .form-card{background:var(--white);border-radius:16px;padding:20px;margin-bottom:16px;border:1px solid var(--border);}
-    .form-title{font-size:15px;font-weight:700;color:var(--noche);margin-bottom:16px;}
-    .field{margin-bottom:14px;}
-    .field label{display:block;font-size:12px;font-weight:600;color:var(--noche);margin-bottom:5px;}
-    .field input,.field select,.field textarea{width:100%;border:1.5px solid rgba(28,43,58,0.12);border-radius:10px;padding:11px 13px;font-family:var(--font-body);font-size:13px;color:var(--noche);background:var(--white);}
-    .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--teal);}
-    .field textarea{height:80px;resize:vertical;}
-    .submit-btn{background:var(--henequen);color:#fff;font-size:14px;font-weight:700;padding:14px;border-radius:20px;width:100%;border:none;cursor:pointer;transition:background 0.2s;}
-    .submit-btn:hover{background:#BF5A20;}
-    .note{font-size:11px;color:var(--muted);text-align:center;margin-top:10px;line-height:1.5;}
-    .success{display:none;background:#E6F5F1;border-radius:14px;padding:24px;text-align:center;margin-top:16px;}
-    .success-icon{font-size:40px;margin-bottom:10px;}
-    .success-title{font-size:16px;font-weight:700;color:var(--teal);margin-bottom:6px;}
-    .success-text{font-size:13px;color:var(--muted);line-height:1.6;}
-    .footer{background:var(--noche);padding:20px 20px 32px;}
-    .footer-links{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:10px;}
-    .footer-link{color:var(--espuma);font-size:11px;opacity:0.85;}
-    .footer-social{display:flex;gap:14px;margin-bottom:10px;}
-    .footer-social a{color:var(--espuma);font-size:20px;}
-    .footer-tagline{color:rgba(123,191,180,0.45);font-size:11px;}
-    [lang-en]{display:none;}
-    body.en [lang-es]{display:none;}
-    body.en [lang-en]{display:block;}
-    span[lang-es]{display:none;}
-    body.en span[lang-es]{display:none;}
-    body.en span[lang-en]{display:inline;}
+    :root {
+      --teal: #1A6B5C;
+      --henequen: #D4763A;
+      --arena: #F5EBD9;
+      --noche: #1C2B3A;
+      --espuma: #7BBFB4;
+      --white: #FFFFFF;
+      --muted: #888780;
+      --border: rgba(212,118,58,0.15);
+      --font-display: "Playfair Display", Georgia, serif;
+      --font-body: "Inter", sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-body); background: var(--arena); color: var(--noche); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 480px; margin: 0 auto; }
+    .nav { background: var(--white); padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; }
+    .logo-svg { height: 36px; width: auto; }
+    .hero { background: linear-gradient(150deg, #1A6B5C, #145a4c); padding: 28px 20px 36px; }
+    .hero-back { display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.75); font-size: 12px; margin-bottom: 14px; }
+    .hero-icon { font-size: 36px; margin-bottom: 10px; display: block; }
+    .hero-title { font-family: var(--font-display); font-size: 26px; color: #fff; line-height: 1.2; margin-bottom: 8px; }
+    .hero-sub { color: rgba(255,255,255,0.8); font-size: 13px; line-height: 1.6; }
+    .wave { display: block; width: 100%; margin-top: -1px; }
+    .body { background: var(--arena); padding: 20px 16px; }
+    .benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+    .benefit { background: var(--white); border-radius: 12px; padding: 14px 12px; text-align: center; border: 1px solid var(--border); }
+    .benefit-icon { font-size: 24px; margin-bottom: 6px; }
+    .benefit-text { font-size: 11px; font-weight: 600; color: var(--noche); }
+    .form-card { background: var(--white); border-radius: 16px; padding: 20px; margin-bottom: 16px; border: 1px solid var(--border); }
+    .form-title { font-size: 15px; font-weight: 700; color: var(--noche); margin-bottom: 16px; }
+    .field { margin-bottom: 14px; }
+    .field label { display: block; font-size: 12px; font-weight: 600; color: var(--noche); margin-bottom: 5px; }
+    .field input, .field select, .field textarea { width: 100%; border: 1.5px solid rgba(28,43,58,0.12); border-radius: 10px; padding: 11px 13px; font-family: var(--font-body); font-size: 13px; color: var(--noche); background: var(--white); }
+    .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--teal); }
+    .field textarea { height: 80px; resize: vertical; }
+    .submit-btn { background: var(--henequen); color: #fff; font-size: 14px; font-weight: 700; padding: 14px; border-radius: 20px; width: 100%; border: none; cursor: pointer; transition: background 0.2s; }
+    .submit-btn:hover { background: #BF5A20; }
+    .note { font-size: 11px; color: var(--muted); text-align: center; margin-top: 10px; line-height: 1.5; }
+    .success { display: none; background: #E6F5F1; border-radius: 14px; padding: 24px; text-align: center; margin-top: 16px; }
+    .success-icon { font-size: 40px; margin-bottom: 10px; }
+    .success-title { font-size: 16px; font-weight: 700; color: var(--teal); margin-bottom: 6px; }
+    .success-text { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .footer { background: var(--noche); padding: 20px 20px 32px; }
+    .footer-links { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 10px; }
+    .footer-link { color: var(--espuma); font-size: 11px; opacity: 0.85; }
+    .footer-social { display: flex; gap: 14px; margin-bottom: 10px; }
+    .footer-social a { color: var(--espuma); font-size: 20px; }
+    .footer-tagline { color: rgba(123,191,180,0.45); font-size: 11px; }
   </style>
 </head>
 <body>
@@ -72,14 +76,13 @@
         <text x="113" y="44" font-family="Georgia,serif" font-weight="700" font-size="24" fill="#1C2B3A">Movil</text>
       </svg>
     </a>
-    <button class="nav-lang" onclick="toggleLang()"><span lang-es>EN</span><span lang-en>ES</span></button>
   </nav>
 
   <section class="hero">
-    <a href="/" class="hero-back">← <span lang-es>Inicio</span><span lang-en>Home</span></a>
+    <a href="/" class="hero-back">← Inicio</a>
     <span class="hero-icon">🏪</span>
-    <h1 class="hero-title"><span lang-es>Registra tu negocio gratis</span><span lang-en>List your business free</span></h1>
-    <p class="hero-sub"><span lang-es>Aparece en el directorio de Progreso y llega a miles de clientes potenciales.</span><span lang-en>Appear in the Progreso directory and reach thousands of potential customers.</span></p>
+    <h1 class="hero-title">Registra tu negocio gratis</h1>
+    <p class="hero-sub">Aparece en el directorio de Progreso y llega a miles de clientes potenciales.</p>
   </section>
 
   <svg class="wave" viewBox="0 0 480 20" preserveAspectRatio="none">
@@ -89,96 +92,94 @@
 
   <main class="body">
     <div class="benefits">
-      <div class="benefit"><div class="benefit-icon">✅</div><div class="benefit-text"><span lang-es>100% Gratis</span><span lang-en>100% Free</span></div></div>
-      <div class="benefit"><div class="benefit-icon">📱</div><div class="benefit-text"><span lang-es>En tu WhatsApp</span><span lang-en>On your WhatsApp</span></div></div>
-      <div class="benefit"><div class="benefit-icon">🔍</div><div class="benefit-text"><span lang-es>Fácil de encontrar</span><span lang-en>Easy to find</span></div></div>
-      <div class="benefit"><div class="benefit-icon">🌊</div><div class="benefit-text"><span lang-es>Local Progreso</span><span lang-en>Local Progreso</span></div></div>
+      <div class="benefit"><div class="benefit-icon">✅</div><div class="benefit-text">100% Gratis</div></div>
+      <div class="benefit"><div class="benefit-icon">📱</div><div class="benefit-text">En tu WhatsApp</div></div>
+      <div class="benefit"><div class="benefit-icon">🔍</div><div class="benefit-text">Fácil de encontrar</div></div>
+      <div class="benefit"><div class="benefit-icon">🌊</div><div class="benefit-text">Local Progreso</div></div>
     </div>
 
     <div class="form-card">
-      <div class="form-title"><span lang-es>Información de tu negocio</span><span lang-en>Your business information</span></div>
+      <div class="form-title">Información de tu negocio</div>
       <form id="register-form" onsubmit="submitForm(event)">
 
         <div class="field">
-          <label><span lang-es>Nombre del negocio *</span><span lang-en>Business name *</span></label>
-          <input type="text" name="business_name" required placeholder-es="Ej: Mariscos El Puerto" placeholder-en="E.g.: Mariscos El Puerto" />
+          <label>Nombre del negocio *</label>
+          <input type="text" name="business_name" required placeholder="Ej: Mariscos El Puerto" />
         </div>
 
         <div class="field">
-          <label><span lang-es>Categoría *</span><span lang-en>Category *</span></label>
+          <label>Categoría *</label>
           <select name="category" required>
-            <option value=""><span lang-es>Selecciona una categoría</span></option>
+            <option value="">Selecciona una categoría</option>
             <option value="restaurantes">🍽 Restaurantes</option>
-            <option value="salud">💊 Salud &amp; Farmacias</option>
+            <option value="salud">💊 Salud & Farmacias</option>
             <option value="servicios">🔧 Servicios del Hogar</option>
-            <option value="tiendas">🏪 Tiendas &amp; Mercados</option>
-            <option value="belleza">✂️ Belleza &amp; Spa</option>
-            <option value="autos">🚗 Autos &amp; Motos</option>
+            <option value="tiendas">🏪 Tiendas & Mercados</option>
+            <option value="belleza">✂️ Belleza & Spa</option>
+            <option value="autos">🚗 Autos & Motos</option>
             <option value="educacion">📚 Educación</option>
             <option value="hospedaje">🏨 Hospedaje</option>
-            <option value="deportes">⚽ Deportes &amp; Fitness</option>
+            <option value="deportes">⚽ Deportes & Fitness</option>
             <option value="entretenimiento">🎉 Entretenimiento</option>
             <option value="mascotas">🐾 Mascotas</option>
             <option value="tecnologia">💻 Tecnología</option>
             <option value="construccion">🏗 Construcción</option>
-            <option value="ropa">👗 Ropa &amp; Moda</option>
+            <option value="ropa">👗 Ropa & Moda</option>
             <option value="profesionales">💼 Servicios Profesionales</option>
-            <option value="eventos">🎊 Eventos &amp; Fiestas</option>
-            <option value="turismo">🌴 Turismo &amp; Tours</option>
+            <option value="eventos">🎊 Eventos & Fiestas</option>
+            <option value="turismo">🌴 Turismo & Tours</option>
           </select>
         </div>
 
         <div class="field">
-          <label><span lang-es>Tu email *</span><span lang-en>Your email *</span></label>
-          <input type="email" name="email" required placeholder-es="Ej: tunegocio@gmail.com" placeholder-en="E.g.: yourbusiness@gmail.com" />
+          <label>Tu email *</label>
+          <input type="email" name="email" required placeholder="Ej: tunegocio@gmail.com" />
         </div>
 
         <div class="field">
-          <label><span lang-es>Tu WhatsApp</span><span lang-en>Your WhatsApp</span></label>
-          <input type="tel" name="whatsapp" placeholder-es="Ej: 999 123 4567" placeholder-en="E.g.: 999 123 4567" />
+          <label>Tu WhatsApp</label>
+          <input type="tel" name="whatsapp" placeholder="Ej: 999 123 4567" />
         </div>
 
         <div class="field">
-          <label><span lang-es>Dirección en Progreso</span><span lang-en>Address in Progreso</span></label>
-          <input type="text" name="address" placeholder-es="Ej: Calle 80 x 31, Centro" placeholder-en="E.g.: Calle 80 x 31, Centro" />
+          <label>Dirección en Progreso</label>
+          <input type="text" name="address" placeholder="Ej: Calle 80 x 31, Centro" />
         </div>
 
         <div class="field">
-          <label><span lang-es>Horario de atención</span><span lang-en>Business hours</span></label>
-          <input type="text" name="hours" placeholder-es="Ej: Lun-Sab 9am-6pm" placeholder-en="E.g.: Mon-Sat 9am-6pm" />
+          <label>Horario de atención</label>
+          <input type="text" name="hours" placeholder="Ej: Lun-Sab 9am-6pm" />
         </div>
 
         <div class="field">
-          <label><span lang-es>Descripción breve</span><span lang-en>Brief description</span></label>
-          <textarea name="description" placeholder-es="Describe tu negocio en pocas palabras..." placeholder-en="Describe your business briefly..."></textarea>
+          <label>Descripción breve</label>
+          <textarea name="description" placeholder="Describe tu negocio en pocas palabras..."></textarea>
         </div>
 
         <div class="field">
-          <label><span lang-es>Tu nombre</span><span lang-en>Your name</span></label>
-          <input type="text" name="owner_name" placeholder-es="Tu nombre completo" placeholder-en="Your full name" />
+          <label>Tu nombre</label>
+          <input type="text" name="owner_name" placeholder="Tu nombre completo" />
         </div>
 
-        <button type="submit" class="submit-btn">
-          <span lang-es>Enviar mi registro gratis</span>
-          <span lang-en>Submit my free listing</span>
-        </button>
-        <p class="note"><span lang-es>Te contactaremos por email para confirmar tu registro en menos de 24 horas.</span><span lang-en>We will contact you via email to confirm your listing within 24 hours.</span></p>
+        <button type="submit" class="submit-btn">Enviar mi registro gratis</button>
+        <p class="note">Te contactaremos por email para confirmar tu registro en menos de 24 horas.</p>
+
       </form>
 
       <div class="success" id="success-msg">
         <div class="success-icon">🎉</div>
-        <div class="success-title"><span lang-es>¡Recibimos tu registro!</span><span lang-en>We got your registration!</span></div>
-        <p class="success-text"><span lang-es>Te contactaremos por email pronto para confirmar y publicar tu negocio en Plaza Móvil.</span><span lang-en>We will contact you via email to confirm and publish your business on Plaza Móvil.</span></p>
+        <div class="success-title">¡Recibimos tu registro!</div>
+        <p class="success-text">Te contactaremos por email pronto para confirmar y publicar tu negocio en Plaza Móvil.</p>
       </div>
     </div>
   </main>
 
   <footer class="footer">
     <nav class="footer-links">
-      <a href="/" class="footer-link"><span lang-es>Inicio</span><span lang-en>Home</span></a>
-      <a href="/categorias.html" class="footer-link"><span lang-es>Categorias</span><span lang-en>Categories</span></a>
-      <a href="/terminos.html" class="footer-link"><span lang-es>Terminos</span><span lang-en>Terms</span></a>
-      <a href="/privacidad.html" class="footer-link"><span lang-es>Privacidad</span><span lang-en>Privacy</span></a>
+      <a href="/" class="footer-link">Inicio</a>
+      <a href="/categorias.html" class="footer-link">Categorias</a>
+      <a href="/terminos.html" class="footer-link">Terminos</a>
+      <a href="/privacidad.html" class="footer-link">Privacidad</a>
     </nav>
     <div class="footer-social">
       <a href="https://facebook.com/plazamovilprogreso" target="_blank">📘</a>
@@ -186,39 +187,23 @@
     </div>
     <p class="footer-tagline">Descubre lo mejor de Progreso 🌊</p>
   </footer>
+
 </div>
-
 <script>
-  let currentLang = localStorage.getItem('pm-lang') || 'es';
-
-  function applyLang(lang) {
-    currentLang = lang;
-    document.body.classList.toggle('en', lang === 'en');
-    document.documentElement.lang = lang === 'en' ? 'en' : 'es';
-    localStorage.setItem('pm-lang', lang);
-    document.querySelectorAll('[placeholder-es]').forEach(el => {
-      el.placeholder = lang === 'en' ? el.getAttribute('placeholder-en') : el.getAttribute('placeholder-es');
-    });
-  }
-
-  function toggleLang() { applyLang(currentLang === 'es' ? 'en' : 'es'); }
-
   function submitForm(e) {
     e.preventDefault();
     const form = document.getElementById('register-form');
-    const inputs = form.querySelectorAll('input,select,textarea');
+    const inputs = form.querySelectorAll('input, select, textarea');
     const data = {};
-    inputs.forEach(i => { if(i.name) data[i.name] = i.value; });
+    inputs.forEach(i => { if (i.name) data[i.name] = i.value; });
     fetch('https://services.leadconnectorhq.com/hooks/tvDxEp1sQXymgmzT2EqX/webhook-trigger/JMZGwzxOIZkdqyEEUbWa', {
       method: 'POST',
-      headers: {'Content-Type': 'application/json'},
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     });
     document.getElementById('register-form').style.display = 'none';
     document.getElementById('success-msg').style.display = 'block';
   }
-
-  applyLang(currentLang);
 </script>
 </body>
 </html>
