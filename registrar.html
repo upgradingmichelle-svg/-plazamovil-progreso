@@ -45,8 +45,19 @@
     .field input, .field select, .field textarea { width: 100%; border: 1.5px solid rgba(28,43,58,0.12); border-radius: 10px; padding: 11px 13px; font-family: var(--font-body); font-size: 13px; color: var(--noche); background: var(--white); }
     .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--teal); }
     .field textarea { height: 80px; resize: vertical; }
+
+    /* Privacy checkbox */
+    .privacy-wrap { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 16px; }
+    .privacy-wrap input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; flex-shrink: 0; accent-color: var(--teal); cursor: pointer; }
+    .privacy-wrap label { font-size: 12px; color: var(--noche); line-height: 1.5; cursor: pointer; }
+    .privacy-wrap a { color: var(--teal); text-decoration: underline; }
+
+    /* Honeypot — hidden from real users, bots fill it in */
+    .hp-field { position: absolute; left: -9999px; top: -9999px; opacity: 0; height: 0; }
+
     .submit-btn { background: var(--henequen); color: #fff; font-size: 14px; font-weight: 700; padding: 14px; border-radius: 20px; width: 100%; border: none; cursor: pointer; transition: background 0.2s; }
     .submit-btn:hover { background: #BF5A20; }
+    .submit-btn:disabled { background: var(--muted); cursor: not-allowed; }
     .note { font-size: 11px; color: var(--muted); text-align: center; margin-top: 10px; line-height: 1.5; }
     .success { display: none; background: #E6F5F1; border-radius: 14px; padding: 24px; text-align: center; margin-top: 16px; }
     .success-icon { font-size: 40px; margin-bottom: 10px; }
@@ -61,6 +72,7 @@
   </style>
 </head>
 <body>
+<iframe name="hidden_iframe" style="display:none;"></iframe>
 <div class="container">
   <nav class="nav">
     <a href="/" aria-label="Plaza Movil">
@@ -68,7 +80,6 @@
         <defs><linearGradient id="wg" x1="0%" x2="0%" y2="0%"><stop offset="0%" stop-color="#F5EA23"/><stop offset="100%" stop-color="#D4763A"/></linearGradient></defs>
         <path d="M97 7 Q100 5 103 7" fill="none" stroke="url(#wg)" stroke-width="5.5" stroke-linecap="round"/>
         <path d="M91 14 Q100 7 109 14" fill="none" stroke="url(#wg)" stroke-width="5.5" stroke-linecap="round"/>
-        <path d="M85 21 Q100 10 115 21" fill="none" stroke="url(#wg)" stroke-width="5.5" stroke-linecap="round"/>
         <path d="M85 21 Q100 10 115 21" fill="none" stroke="url(#wg)" stroke-width="6" stroke-linecap="round"/>
         <rect x="94" y="21" width="12" height="20" rx="2.5" fill="#1A6B5C"/>
         <rect x="95.5" y="23" width="9" height="14" rx="1.5" fill="#fff" opacity="0.92"/>
@@ -154,7 +165,22 @@
           <label>Tu nombre</label>
           <input type="text" id="owner_name" placeholder="Tu nombre completo" />
         </div>
-        <button class="submit-btn" onclick="submitForm()">Enviar mi registro gratis</button>
+
+        <!-- Honeypot: hidden field to catch bots. Real users never see or fill this. -->
+        <div class="hp-field" aria-hidden="true">
+          <label>No llenes este campo</label>
+          <input type="text" id="hp_website" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <!-- Privacy consent — required before submit -->
+        <div class="privacy-wrap">
+          <input type="checkbox" id="privacy_consent" onchange="toggleSubmit()" />
+          <label for="privacy_consent">
+            Acepto el <a href="/privacidad.html" target="_blank">aviso de privacidad</a> y autorizo a Plaza Móvil a usar mis datos para publicar y gestionar mi negocio en el directorio.
+          </label>
+        </div>
+
+        <button class="submit-btn" id="submit-btn" onclick="submitForm()" disabled>Enviar mi registro gratis</button>
         <p class="note">Te contactaremos por email para confirmar tu registro en menos de 24 horas.</p>
       </div>
 
@@ -183,40 +209,63 @@
 </div>
 
 <script>
-function submitForm() {
-  const business_name = document.getElementById('business_name').value;
-  const category = document.getElementById('category').value;
-  const email = document.getElementById('email').value;
-
-  if (!business_name || !category || !email) {
-    alert('Por favor completa los campos obligatorios: Nombre, Categoría y Email.');
-    return;
+  function toggleSubmit() {
+    const checked = document.getElementById('privacy_consent').checked;
+    document.getElementById('submit-btn').disabled = !checked;
   }
 
-  const data = {
-    business_name: business_name,
-    category: category,
-    email: email,
-    whatsapp: document.getElementById('whatsapp').value,
-    address: document.getElementById('address').value,
-    hours: document.getElementById('hours').value,
-    description: document.getElementById('description').value,
-    owner_name: document.getElementById('owner_name').value
-  };
+  function submitForm() {
+    const business_name = document.getElementById('business_name').value;
+    const category = document.getElementById('category').value;
+    const email = document.getElementById('email').value;
 
-  const img = new Image();
-  img.src = 'https://services.leadconnectorhq.com/hooks/tvDxEp1sQXymgmzT2EqX/webhook-trigger/JMZGwzxOIZkdqyEEUbWa?' + new URLSearchParams(data).toString();
+    if (!business_name || !category || !email) {
+      alert('Por favor completa los campos obligatorios: Nombre, Categoría y Email.');
+      return;
+    }
 
-  fetch('https://services.leadconnectorhq.com/hooks/tvDxEp1sQXymgmzT2EqX/webhook-trigger/JMZGwzxOIZkdqyEEUbWa', {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-  });
+    if (!document.getElementById('privacy_consent').checked) {
+      alert('Por favor acepta el aviso de privacidad para continuar.');
+      return;
+    }
 
-  document.getElementById('form-wrap').style.display = 'none';
-  document.getElementById('success-msg').style.display = 'block';
-}
+    // Honeypot check — if this field has a value, it's a bot. Stop silently.
+    if (document.getElementById('hp_website').value !== '') {
+      document.getElementById('form-wrap').style.display = 'none';
+      document.getElementById('success-msg').style.display = 'block';
+      return;
+    }
+
+    const data = {
+      business_name: business_name,
+      category: category,
+      email: email,
+      whatsapp: document.getElementById('whatsapp').value,
+      address: document.getElementById('address').value,
+      hours: document.getElementById('hours').value,
+      description: document.getElementById('description').value,
+      owner_name: document.getElementById('owner_name').value
+    };
+
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = 'https://services.leadconnectorhq.com/hooks/tvDxEp1sQXymgmzT2EqX/webhook-trigger/JMZGwzxOIZkdqyEEUbWa';
+    form.target = 'hidden_iframe';
+
+    Object.keys(data).forEach(key => {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = key;
+      input.value = data[key];
+      form.appendChild(input);
+    });
+
+    document.body.appendChild(form);
+    form.submit();
+
+    document.getElementById('form-wrap').style.display = 'none';
+    document.getElementById('success-msg').style.display = 'block';
+  }
 </script>
 </body>
 </html>
