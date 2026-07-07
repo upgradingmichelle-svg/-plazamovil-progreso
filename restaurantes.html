@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  .wa-btn.unclaimed { background: var(--muted); } .claim-modal-overlay { display:none; position:fixed; inset:0; background:rgba(28,43,58,0.6); z-index:1000; align-items:center; justify-content:center; padding:20px; } .claim-modal-overlay.active { display:flex; } .claim-modal { background:var(--white); border-radius:16px; padding:24px 20px; max-width:300px; width:100%; text-align:center; position:relative; } .claim-modal-icon { font-size:32px; margin-bottom:10px; } .claim-modal-title { font-family:var(--font-display); font-size:15px; font-weight:700; color:var(--noche); margin-bottom:8px; } .claim-modal-text { font-size:12px; color:var(--muted); line-height:1.5; margin-bottom:16px; } .claim-modal-btn { display:block; background:var(--henequen); color:#fff; font-size:12px; font-weight:700; padding:10px; border-radius:20px; margin-bottom:8px; } .claim-modal-btn-secondary { display:block; width:100%; background:var(--arena); color:var(--noche); font-size:12px; font-weight:600; padding:10px; border-radius:20px; border:none; cursor:pointer; } .claim-modal-close { position:absolute; top:8px; right:12px; background:none; border:none; font-size:16px; color:var(--muted); cursor:pointer; }
   <style>
     :root {
       --teal:     #1A6B5C;
@@ -100,6 +101,9 @@
     .footer-social { display: flex; gap: 14px; margin-bottom: 10px; }
     .footer-social a { color: var(--espuma); font-size: 20px; }
     .footer-tagline { color: rgba(123,191,180,0.45); font-size: 11px; }
+    Este negocio aún no ha verificado su ficha en Plaza Móvil. This business hasn't verified their listing on Plaza Móvil yet.
+
+Verificar este negocio Verify this business 📤 Compartir con el dueñoShare with owner
 
     /* LANG */
     [lang-en] { display: none; }
@@ -181,50 +185,56 @@
 
     <div id="biz-list">
 
-      <article class="biz-card" data-tags="mariscos">
-        <div class="biz-photo" style="background:#FFF0E6;">🐟</div>
-        <div class="biz-info">
-          <div class="biz-name">Mariscos El Puerto</div>
-          <div class="biz-type"><span lang-es>Mariscos · Malecón</span><span lang-en>Seafood · Malecón</span></div>
-          <div class="biz-row">
-            <span class="stars">★★★★½</span>
-            <span class="rating">4.5</span>
-            <span class="badge badge-dest"><span lang-es>Destacado</span><span lang-en>Featured</span></span>
-          </div>
-          <div class="biz-hours">🕐 <span lang-es>Abierto · Cierra a las 9pm</span><span lang-en>Open · Closes at 9pm</span></div>
-        </div>
-        <button class="wa-btn" onclick="openWA('5219991234567','Mariscos El Puerto')">📱</button>
-      </article>
-
-      <article class="biz-card" data-tags="yucateco">
-        <div class="biz-photo" style="background:#FFFBE6;">🌮</div>
-        <div class="biz-info">
-          <div class="biz-name">La Cocina de Rosa</div>
-          <div class="biz-type"><span lang-es>Comida Yucateca · Centro</span><span lang-en>Yucatecan Food · Centro</span></div>
-          <div class="biz-row">
-            <span class="stars">★★★★</span>
-            <span class="rating">4.2</span>
-            <span class="badge badge-ver"><span lang-es>Verificado</span><span lang-en>Verified</span></span>
-          </div>
-          <div class="biz-hours">🕐 <span lang-es>Abierto · Cierra a las 6pm</span><span lang-en>Open · Closes at 6pm</span></div>
-        </div>
-        <button class="wa-btn" onclick="openWA('5219991234570','La Cocina de Rosa')">📱</button>
-      </article>
-
-      <article class="biz-card" data-tags="internacional">
-        <div class="biz-photo" style="background:#E8F4F8;">🍕</div>
-        <div class="biz-info">
-          <div class="biz-name">Pizzería Napoli</div>
-          <div class="biz-type"><span lang-es>Italiana · Calle 80</span><span lang-en>Italian · Calle 80</span></div>
-          <div class="biz-row">
-            <span class="stars">★★★★</span>
-            <span class="rating">4.0</span>
-            <span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span>
-          </div>
-          <div class="biz-hours">🕐 <span lang-es>Abierto · Cierra a las 10pm</span><span lang-en>Open · Closes at 10pm</span></div>
-        </div>
-        <button class="wa-btn" onclick="openWA('5219991234571','Pizzería Napoli')">📱</button>
-      </article>
+     🍽️
+Almadía Progreso
+Restaurante · C. 19 138, Malecón, CentroRestaurant · C. 19 138, Malecón, Centro
+NuevoNew
+🔒
+🐟
+Bacalauh
+Mariscos · Malecón, Manzana y 80, CentroSeafood · Malecón, Manzana y 80, Centro
+NuevoNew
+🔒
+🍹
+Eladio's Bar Progreso
+Bar · Calle 80 & 19, CentroBar · Calle 80 & 19, Centro
+NuevoNew
+🔒
+🌮
+La Antigua Progreso
+Comida Yucateca · C. 71 por 60, BordingYucatecan Food · C. 71 por 60, Bording
+NuevoNew
+🔒
+🦀
+Crabster Seafood & Grill
+Mariscos y Parrilla · C. 19 148a, MalecónSeafood & Grill · C. 19 148a, Malecón
+NuevoNew
+🔒
+🐟
+Zal Marina Progreso
+Mariscos · Calle 77 234, Juan MontalvoSeafood · Calle 77 234, Juan Montalvo
+NuevoNew
+🔒
+🍰
+Cake House
+Repostería · C. 19 Calle 60, MalecónBakery & Desserts · C. 19 Calle 60, Malecón
+NuevoNew
+🔒
+🌮
+Maya-KA
+Comida Yucateca · C. 19 150, CentroYucatecan Food · C. 19 150, Centro
+NuevoNew
+🔒
+🍽️
+Restaurante Boulevard 21
+Restaurante · Calle 80, Malecón, CentroRestaurant · Calle 80, Malecón, Centro
+NuevoNew
+🔒
+🐟
+Mobula
+Mariscos · Malecón TurísticoSeafood · Malecón Turístico
+NuevoNew
+🔒
 
     </div><!-- /biz-list -->
 
@@ -311,6 +321,7 @@
   }
 
   applyLang(currentLang);
-</script>
+</script> 
+  const VENDOR_STATUS_URL = 'https://hook.us2.make.com/cwur7y9mnqfnhxtmon7wczaqjuvoffrk'; async function syncVendorStatus() { try { const res = await fetch(VENDOR_STATUS_URL); const vendors = await res.json(); const statusMap = {}; vendors.forEach(v => { statusMap[v.key] = v; }); document.querySelectorAll('.biz-card[data-key]').forEach(card => { const key = card.dataset.key; const v = statusMap[key]; if (v && v.whatsappEnabled === 'true' && v.phone) { const btn = card.querySelector('.wa-btn'); if (btn) { const phoneDigits = v.phone.replace(/[^0-9]/g, ''); btn.classList.remove('unclaimed'); btn.textContent = '📱'; btn.onclick = () => openWA(phoneDigits, v.businessName); } } }); } catch (err) { console.log('Vendor status check failed — staying in safe/locked state.', err); } } document.addEventListener('DOMContentLoaded', syncVendorStatus); function openClaimModal(name) { document.getElementById('claimModalTitle').textContent = name; document.getElementById('claimModalLink').href = '/registrar.html?negocio=' + encodeURIComponent(name); document.getElementById('claimModal').classList.add('active'); window.__claimBizName = name; } function closeClaimModal(e) { if (e) e.stopPropagation(); document.getElementById('claimModal').classList.remove('active'); } function shareWithOwner() { const name = window.__claimBizName || ''; const url = window.location.origin + '/registrar.html?negocio=' + encodeURIComponent(name); const msg = (currentLang === 'en') ? 'Hi! Your business "' + name + '" is listed on Plaza Móvil — claim it free here: ' + url : 'Hola! Tu negocio "' + name + '" está en Plaza Móvil — reclámalo gratis aquí: ' + url; if (navigator.share) { navigator.share({ text: msg }); } else { navigator.clipboard.writeText(msg); alert(currentLang === 'en' ? 'Link copied!' : '¡Enlace copiado!'); } }
 </body>
 </html>
