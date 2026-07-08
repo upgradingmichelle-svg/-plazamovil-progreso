@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Restaurantes en Progreso, Yucatán — Encuentra los mejores lugares para comer en Plaza Móvil" />
-  <title>Restaurantes en Progreso — Plaza Móvil</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  .wa-btn.unclaimed { background: var(--muted); } .claim-modal-overlay { display:none; position:fixed; inset:0; background:rgba(28,43,58,0.6); z-index:1000; align-items:center; justify-content:center; padding:20px; } .claim-modal-overlay.active { display:flex; } .claim-modal { background:var(--white); border-radius:16px; padding:24px 20px; max-width:300px; width:100%; text-align:center; position:relative; } .claim-modal-icon { font-size:32px; margin-bottom:10px; } .claim-modal-title { font-family:var(--font-display); font-size:15px; font-weight:700; color:var(--noche); margin-bottom:8px; } .claim-modal-text { font-size:12px; color:var(--muted); line-height:1.5; margin-bottom:16px; } .claim-modal-btn { display:block; background:var(--henequen); color:#fff; font-size:12px; font-weight:700; padding:10px; border-radius:20px; margin-bottom:8px; } .claim-modal-btn-secondary { display:block; width:100%; background:var(--arena); color:var(--noche); font-size:12px; font-weight:600; padding:10px; border-radius:20px; border:none; cursor:pointer; } .claim-modal-close { position:absolute; top:8px; right:12px; background:none; border:none; font-size:16px; color:var(--muted); cursor:pointer; }
-  <style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Restaurantes en Progreso — Plaza Móvil" />
+<title>Restaurantes en Progreso — Plaza Móvil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
     :root {
       --teal:     #1A6B5C;
       --henequen: #D4763A;
@@ -117,211 +116,285 @@ Verificar este negocio Verify this business 📤 Compartir con el dueñoShare wi
 <body>
 <div class="container">
 
-  <!-- NAV -->
-  <nav class="nav">
-    <a href="/" aria-label="Plaza Móvil — Inicio">
-      <svg class="logo-svg" viewBox="0 0 200 52" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="wg" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#F5A623"/>
-            <stop offset="100%" stop-color="#D4763A"/>
-          </linearGradient>
-        </defs>
-        <path d="M97 7 Q100 5 103 7" fill="none" stroke="url(#wg)" stroke-width="5.5" stroke-linecap="round"/>
-        <path d="M91 14 Q100 7 109 14" fill="none" stroke="url(#wg)" stroke-width="5.5" stroke-linecap="round"/>
-        <path d="M85 21 Q100 10 115 21" fill="none" stroke="url(#wg)" stroke-width="6" stroke-linecap="round"/>
-        <rect x="94" y="21" width="12" height="20" rx="2.5" fill="#1A6B5C"/>
-        <rect x="95.5" y="23" width="9" height="14" rx="1.5" fill="#fff" opacity="0.92"/>
-        <circle cx="100" cy="39.5" r="1.2" fill="#fff"/>
-        <text x="6" y="44" font-family="Georgia,serif" font-weight="700" font-size="24" fill="#1C2B3A">Plaza</text>
-        <text x="113" y="44" font-family="Georgia,serif" font-weight="700" font-size="24" fill="#1C2B3A">Movil</text>
-      </svg>
-    </a>
-    <button class="nav-lang" onclick="toggleLang()">
-      <span lang-es>EN</span><span lang-en>ES</span>
-    </button>
-  </nav>
+<nav class="nav">
+<a href="/" aria-label="Plaza Móvil — Inicio">
+<svg class="logo-svg" viewBox="0 0 200 52" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="wg" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" stop-color="#F5A623"/>
+<stop offset="100%" stop-color="#D4763A"/>
+</linearGradient>
+</defs>
+<path d="M97 7 Q100 5 103 7" fill="none" stroke="url(#wg)" stroke-width="5.5" stroke-linecap="round"/>
+<path d="M91 14 Q100 7 109 14" fill="none" stroke="url(#wg)" stroke-width="5.5" stroke-linecap="round"/>
+<path d="M85 21 Q100 10 115 21" fill="none" stroke="url(#wg)" stroke-width="6" stroke-linecap="round"/>
+<rect x="94" y="21" width="12" height="20" rx="2.5" fill="#1A6B5C"/>
+<rect x="95.5" y="23" width="9" height="14" rx="1.5" fill="#fff" opacity="0.92"/>
+<circle cx="100" cy="39.5" r="1.2" fill="#fff"/>
+<text x="6" y="44" font-family="Georgia,serif" font-weight="700" font-size="24" fill="#1C2B3A">Plaza</text>
+<text x="113" y="44" font-family="Georgia,serif" font-weight="700" font-size="24" fill="#1C2B3A">Movil</text>
+</svg>
+</a>
+<button class="nav-lang" onclick="toggleLang()">
+<span lang-es>EN</span><span lang-en>ES</span>
+</button>
+</nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <a href="/categorias.html" class="hero-back">← <span lang-es>Categorías</span><span lang-en>Categories</span></a>
-    <span class="hero-emoji">🍽️</span>
-    <h1 class="hero-title">
-      <span lang-es>Restaurantes en Progreso</span>
-      <span lang-en>Restaurants in Progreso</span>
-    </h1>
-    <p class="hero-sub">
-      <span lang-es>Los mejores lugares para comer en Progreso, Yucatán</span>
-      <span lang-en>The best places to eat in Progreso, Yucatán</span>
-    </p>
-    <span class="hero-count">🍽️ <span lang-es>3 negocios</span><span lang-en>3 businesses</span></span>
-    <div class="search-wrap">
-      <span>🔍</span>
-      <input type="search" id="biz-search"
-        placeholder-es="Buscar restaurante..."
-        placeholder-en="Search restaurant..."
-        oninput="filterBiz(this.value)"
-      />
-    </div>
-  </section>
+<section class="hero">
+<a href="/categorias.html" class="hero-back">← <span lang-es>Categorías</span><span lang-en>Categories</span></a>
+<span class="hero-emoji">🍽️</span>
+<h1 class="hero-title">
+<span lang-es>Restaurantes en Progreso</span>
+<span lang-en>Restaurants in Progreso</span>
+</h1>
+<p class="hero-sub">
+<span lang-es>Los mejores lugares para comer en Progreso, Yucatán</span>
+<span lang-en>The best places to eat in Progreso, Yucatán</span>
+</p>
+<span class="hero-count">🍽️ <span lang-es>10 negocios</span><span lang-en>10 businesses</span></span>
+<div class="search-wrap">
+<span>🔍</span>
+<input type="search" id="biz-search"
+placeholder-es="Buscar restaurante..."
+placeholder-en="Search restaurant..."
+oninput="filterBiz(this.value)"
+/>
+</div>
+</section>
 
-  <svg class="wave" viewBox="0 0 480 20" preserveAspectRatio="none">
-    <path d="M0 0 Q120 20 240 10 Q360 0 480 15 L480 0 Z" fill="#BF5A20"/>
-    <path d="M0 20 L480 20 L480 15 Q360 0 240 10 Q120 20 0 0 Z" fill="#F5EBD9"/>
-  </svg>
+<svg class="wave" viewBox="0 0 480 20" preserveAspectRatio="none">
+<path d="M0 0 Q120 20 240 10 Q360 0 480 15 L480 0 Z" fill="#BF5A20"/>
+<path d="M0 20 L480 20 L480 15 Q360 0 240 10 Q120 20 0 0 Z" fill="#F5EBD9"/>
+</svg>
 
-  <!-- FILTER PILLS -->
-  <div class="filters">
-    <div class="filter-pill active" onclick="setFilter(this, 'all')"><span lang-es>Todos</span><span lang-en>All</span></div>
-    <div class="filter-pill" onclick="setFilter(this, 'mariscos')"><span lang-es>Mariscos</span><span lang-en>Seafood</span></div>
-    <div class="filter-pill" onclick="setFilter(this, 'yucateco')"><span lang-es>Yucateco</span><span lang-en>Yucatecan</span></div>
-    <div class="filter-pill" onclick="setFilter(this, 'internacional')"><span lang-es>Internacional</span><span lang-en>International</span></div>
-    <div class="filter-pill" onclick="setFilter(this, 'rapido')"><span lang-es>Comida Rápida</span><span lang-en>Fast Food</span></div>
+<main class="body">
+<p class="sec-title"><span lang-es>Negocios destacados</span><span lang-en>Featured businesses</span></p>
+
+<div id="biz-list">
+<article class="biz-card" data-key="restaurantes-almadia-progreso" data-name="Almadía Progreso" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🍽️</div>
+  <div class="biz-info">
+    <div class="biz-name">Almadía Progreso</div>
+    <div class="biz-type"><span lang-es>Restaurante · C. 19 138, Malecón, Centro</span><span lang-en>Restaurant · C. 19 138, Malecón, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
   </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="restaurantes-bacalauh" data-name="Bacalauh" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🐟</div>
+  <div class="biz-info">
+    <div class="biz-name">Bacalauh</div>
+    <div class="biz-type"><span lang-es>Mariscos · Malecón, Manzana y 80, Centro</span><span lang-en>Seafood · Malecón, Manzana y 80, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="restaurantes-eladios-bar" data-name="Eladio's Bar Progreso" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🍹</div>
+  <div class="biz-info">
+    <div class="biz-name">Eladio's Bar Progreso</div>
+    <div class="biz-type"><span lang-es>Bar · Calle 80 & 19, Centro</span><span lang-en>Bar · Calle 80 & 19, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="restaurantes-la-antigua-progreso" data-name="La Antigua Progreso" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🌮</div>
+  <div class="biz-info">
+    <div class="biz-name">La Antigua Progreso</div>
+    <div class="biz-type"><span lang-es>Comida Yucateca · C. 71 por 60, Bording</span><span lang-en>Yucatecan Food · C. 71 por 60, Bording</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="restaurantes-crabster" data-name="Crabster Seafood &amp; Grill" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🦀</div>
+  <div class="biz-info">
+    <div class="biz-name">Crabster Seafood & Grill</div>
+    <div class="biz-type"><span lang-es>Mariscos y Parrilla · C. 19 148a, Malecón</span><span lang-en>Seafood & Grill · C. 19 148a, Malecón</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="restaurantes-zal-marina" data-name="Zal Marina Progreso" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🐟</div>
+  <div class="biz-info">
+    <div class="biz-name">Zal Marina Progreso</div>
+    <div class="biz-type"><span lang-es>Mariscos · Calle 77 234, Juan Montalvo</span><span lang-en>Seafood · Calle 77 234, Juan Montalvo</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="restaurantes-cake-house" data-name="Cake House" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🍰</div>
+  <div class="biz-info">
+    <div class="biz-name">Cake House</div>
+    <div class="biz-type"><span lang-es>Repostería · C. 19 Calle 60, Malecón</span><span lang-en>Bakery & Desserts · C. 19 Calle 60, Malecón</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="restaurantes-maya-ka" data-name="Maya-KA" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🌮</div>
+  <div class="biz-info">
+    <div class="biz-name">Maya-KA</div>
+    <div class="biz-type"><span lang-es>Comida Yucateca · C. 19 150, Centro</span><span lang-en>Yucatecan Food · C. 19 150, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="restaurantes-boulevard-21" data-name="Restaurante Boulevard 21" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🍽️</div>
+  <div class="biz-info">
+    <div class="biz-name">Restaurante Boulevard 21</div>
+    <div class="biz-type"><span lang-es>Restaurante · Calle 80, Malecón, Centro</span><span lang-en>Restaurant · Calle 80, Malecón, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="restaurantes-mobula" data-name="Mobula" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🐟</div>
+  <div class="biz-info">
+    <div class="biz-name">Mobula</div>
+    <div class="biz-type"><span lang-es>Mariscos · Malecón Turístico</span><span lang-en>Seafood · Malecón Turístico</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+</div><!-- /biz-list -->
 
-  <!-- BODY -->
-  <main class="body">
-    <p class="sec-title"><span lang-es>Restaurantes destacados</span><span lang-en>Featured restaurants</span></p>
-
-    <div id="biz-list">
-
-     🍽️
-Almadía Progreso
-Restaurante · C. 19 138, Malecón, CentroRestaurant · C. 19 138, Malecón, Centro
-NuevoNew
-🔒
-🐟
-Bacalauh
-Mariscos · Malecón, Manzana y 80, CentroSeafood · Malecón, Manzana y 80, Centro
-NuevoNew
-🔒
-🍹
-Eladio's Bar Progreso
-Bar · Calle 80 & 19, CentroBar · Calle 80 & 19, Centro
-NuevoNew
-🔒
-🌮
-La Antigua Progreso
-Comida Yucateca · C. 71 por 60, BordingYucatecan Food · C. 71 por 60, Bording
-NuevoNew
-🔒
-🦀
-Crabster Seafood & Grill
-Mariscos y Parrilla · C. 19 148a, MalecónSeafood & Grill · C. 19 148a, Malecón
-NuevoNew
-🔒
-🐟
-Zal Marina Progreso
-Mariscos · Calle 77 234, Juan MontalvoSeafood · Calle 77 234, Juan Montalvo
-NuevoNew
-🔒
-🍰
-Cake House
-Repostería · C. 19 Calle 60, MalecónBakery & Desserts · C. 19 Calle 60, Malecón
-NuevoNew
-🔒
-🌮
-Maya-KA
-Comida Yucateca · C. 19 150, CentroYucatecan Food · C. 19 150, Centro
-NuevoNew
-🔒
-🍽️
-Restaurante Boulevard 21
-Restaurante · Calle 80, Malecón, CentroRestaurant · Calle 80, Malecón, Centro
-NuevoNew
-🔒
-🐟
-Mobula
-Mariscos · Malecón TurísticoSeafood · Malecón Turístico
-NuevoNew
-🔒
-
-    </div><!-- /biz-list -->
-
-    <!-- LIST YOUR BIZ -->
-    <div class="list-cta">
-      <p class="list-cta-text">
-        <span lang-es>¿Tienes un restaurante en Progreso? ¡Aparece aquí gratis!</span>
-        <span lang-en>Own a restaurant in Progreso? Get listed here free!</span>
-      </p>
-      <a href="/registrar.html" class="list-cta-btn">
-        <span lang-es>Registrar mi restaurante</span>
-        <span lang-en>List my restaurant</span>
-      </a>
-    </div>
-
-    <!-- VENDOR CTA -->
-    <div class="vendor">
-      <div class="vendor-icon">🏪</div>
-      <div class="vendor-title">
-        <span lang-es>¿Tu negocio está aquí?</span>
-        <span lang-en>Is your business here?</span>
-      </div>
-      <p class="vendor-sub">
-        <span lang-es>Únete gratis — miles te buscan en Progreso</span>
-        <span lang-en>Join free — thousands are searching for you</span>
-      </p>
-      <a href="/registrar.html" class="vendor-btn">
-        <span lang-es>Registra tu negocio gratis</span>
-        <span lang-en>List your business free</span>
-      </a>
-    </div>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <nav class="footer-links">
-      <a href="/" class="footer-link"><span lang-es>Inicio</span><span lang-en>Home</span></a>
-      <a href="/categorias.html" class="footer-link"><span lang-es>Categorías</span><span lang-en>Categories</span></a>
-      <a href="/delivery.html" class="footer-link">Delivery</a>
-      <a href="/terminos.html" class="footer-link"><span lang-es>Términos</span><span lang-en>Terms</span></a>
-      <a href="/privacidad.html" class="footer-link"><span lang-es>Privacidad</span><span lang-en>Privacy</span></a>
-    </nav>
-    <div class="footer-social">
-      <a href="https://facebook.com/plazamovilprogreso" target="_blank">📘</a>
-      <a href="https://instagram.com/plazamovilprogreso" target="_blank">📸</a>
-    </div>
-    <p class="footer-tagline">Descubre lo mejor de Progreso 🌊</p>
-  </footer>
-
+<div class="list-cta">
+<p class="list-cta-text">
+<span lang-es>¿Tienes un negocio en Progreso? ¡Aparece aquí gratis!</span>
+<span lang-en>Own a business in Progreso? Get listed here free!</span>
+</p>
+<a href="/registrar.html" class="list-cta-btn">
+<span lang-es>Registrar mi negocio</span>
+<span lang-en>List my business</span>
+</a>
 </div>
 
+<div class="vendor">
+<div class="vendor-icon">🏪</div>
+<div class="vendor-title">
+<span lang-es>¿Tu negocio está aquí?</span>
+<span lang-en>Is your business here?</span>
+</div>
+<p class="vendor-sub">
+<span lang-es>Únete gratis — miles te buscan en Progreso</span>
+<span lang-en>Join free — thousands are searching for you</span>
+</p>
+<a href="/registrar.html" class="vendor-btn">
+<span lang-es>Registra tu negocio gratis</span>
+<span lang-en>List your business free</span>
+</a>
+</div>
+
+</main>
+
+<div class="claim-modal-overlay" id="claimModal" onclick="closeClaimModal(event)">
+  <div class="claim-modal" onclick="event.stopPropagation()">
+    <button class="claim-modal-close" onclick="closeClaimModal(event)">✕</button>
+    <div class="claim-modal-icon">🔒</div>
+    <div class="claim-modal-title" id="claimModalTitle"></div>
+    <p class="claim-modal-text">
+      <span lang-es>Este negocio aún no ha verificado su ficha en Plaza Móvil.</span>
+      <span lang-en>This business hasn't verified their listing on Plaza Móvil yet.</span>
+    </p>
+    <a class="claim-modal-btn" id="claimModalLink" href="#">
+      <span lang-es>Verificar este negocio</span><span lang-en>Verify this business</span>
+    </a>
+    <button class="claim-modal-btn-secondary" onclick="shareWithOwner()">
+      📤 <span lang-es>Compartir con el dueño</span><span lang-en>Share with owner</span>
+    </button>
+  </div>
+</div>
+
+<footer class="footer">
+<nav class="footer-links">
+<a href="/" class="footer-link"><span lang-es>Inicio</span><span lang-en>Home</span></a>
+<a href="/categorias.html" class="footer-link"><span lang-es>Categorías</span><span lang-en>Categories</span></a>
+<a href="/delivery.html" class="footer-link">Delivery</a>
+<a href="/terminos.html" class="footer-link"><span lang-es>Términos</span><span lang-en>Terms</span></a>
+<a href="/privacidad.html" class="footer-link"><span lang-es>Privacidad</span><span lang-en>Privacy</span></a>
+</nav>
+<div class="footer-social">
+<a href="https://facebook.com/plazamovilprogreso" target="_blank">📘</a>
+<a href="https://instagram.com/plazamovilprogreso" target="_blank">📸</a>
+</div>
+<p class="footer-tagline">Descubre lo mejor de Progreso 🌊</p>
+</footer>
+
+</div>
 <script>
-  let currentLang = localStorage.getItem('pm-lang') || 'es';
-  function applyLang(lang) {
-    currentLang = lang;
-    document.body.classList.toggle('en', lang === 'en');
-    document.documentElement.lang = lang === 'en' ? 'en' : 'es';
-    localStorage.setItem('pm-lang', lang);
-    const input = document.getElementById('biz-search');
-    if (input) input.placeholder = lang === 'en' ? input.getAttribute('placeholder-en') : input.getAttribute('placeholder-es');
-  }
-  function toggleLang() { applyLang(currentLang === 'es' ? 'en' : 'es'); }
+let currentLang = localStorage.getItem('pm-lang') || 'es';
+function applyLang(lang) {
+  currentLang = lang;
+  document.body.classList.toggle('en', lang === 'en');
+  document.documentElement.lang = lang === 'en' ? 'en' : 'es';
+  localStorage.setItem('pm-lang', lang);
+  const input = document.getElementById('biz-search');
+  if (input) input.placeholder = lang === 'en' ? input.getAttribute('placeholder-en') : input.getAttribute('placeholder-es');
+}
+function toggleLang() { applyLang(currentLang === 'es' ? 'en' : 'es'); }
 
-  function filterBiz(q) {
-    document.querySelectorAll('#biz-list article').forEach(c => {
-      c.style.display = c.textContent.toLowerCase().includes(q.toLowerCase()) ? 'flex' : 'none';
+function filterBiz(q) {
+  document.querySelectorAll('#biz-list article').forEach(c => {
+    c.style.display = c.textContent.toLowerCase().includes(q.toLowerCase()) ? 'flex' : 'none';
+  });
+}
+
+function openWA(number, name) {
+  const msg = currentLang === 'en'
+    ? 'Hi! I found you on Plaza M\u00f3vil and I have a question.'
+    : 'Hola! Te encontr\u00e9 en Plaza M\u00f3vil y tengo una pregunta.';
+  window.open('https://wa.me/' + number + '?text=' + encodeURIComponent(msg), '_blank');
+}
+
+applyLang(currentLang);
+
+const VENDOR_STATUS_URL = 'https://hook.us2.make.com/cwur7y9mnqfnhxtmon7wczaqjuvoffrk';
+async function syncVendorStatus() {
+  try {
+    const res = await fetch(VENDOR_STATUS_URL);
+    const vendors = await res.json();
+    const statusMap = {};
+    vendors.forEach(v => { statusMap[v.key] = v; });
+    document.querySelectorAll('.biz-card[data-key]').forEach(card => {
+      const key = card.dataset.key;
+      const v = statusMap[key];
+      if (v && v.whatsappEnabled === 'true' && v.phone) {
+        const btn = card.querySelector('.wa-btn');
+        if (btn) {
+          const phoneDigits = v.phone.replace(/[^0-9]/g, '');
+          btn.classList.remove('unclaimed');
+          btn.textContent = '\ud83d\udcf1';
+          btn.onclick = (e) => { e.stopPropagation(); openWA(phoneDigits, v.businessName); };
+        }
+      }
     });
+  } catch (err) {
+    console.log('Vendor status check failed \u2014 staying in safe/locked state.', err);
   }
+}
+document.addEventListener('DOMContentLoaded', syncVendorStatus);
 
-  function setFilter(el, tag) {
-    document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
-    el.classList.add('active');
-    document.querySelectorAll('#biz-list article').forEach(c => {
-      c.style.display = (tag === 'all' || c.dataset.tags?.includes(tag)) ? 'flex' : 'none';
-    });
-  }
-
-  function openWA(number, name) {
-    const msg = currentLang === 'en'
-      ? 'Hi! I found you on Plaza Móvil and I have a question.'
-      : 'Hola! Te encontré en Plaza Móvil y tengo una pregunta.';
-    window.open('https://wa.me/' + number + '?text=' + encodeURIComponent(msg), '_blank');
-  }
-
-  applyLang(currentLang);
-</script> 
-  const VENDOR_STATUS_URL = 'https://hook.us2.make.com/cwur7y9mnqfnhxtmon7wczaqjuvoffrk'; async function syncVendorStatus() { try { const res = await fetch(VENDOR_STATUS_URL); const vendors = await res.json(); const statusMap = {}; vendors.forEach(v => { statusMap[v.key] = v; }); document.querySelectorAll('.biz-card[data-key]').forEach(card => { const key = card.dataset.key; const v = statusMap[key]; if (v && v.whatsappEnabled === 'true' && v.phone) { const btn = card.querySelector('.wa-btn'); if (btn) { const phoneDigits = v.phone.replace(/[^0-9]/g, ''); btn.classList.remove('unclaimed'); btn.textContent = '📱'; btn.onclick = () => openWA(phoneDigits, v.businessName); } } }); } catch (err) { console.log('Vendor status check failed — staying in safe/locked state.', err); } } document.addEventListener('DOMContentLoaded', syncVendorStatus); function openClaimModal(name) { document.getElementById('claimModalTitle').textContent = name; document.getElementById('claimModalLink').href = '/registrar.html?negocio=' + encodeURIComponent(name); document.getElementById('claimModal').classList.add('active'); window.__claimBizName = name; } function closeClaimModal(e) { if (e) e.stopPropagation(); document.getElementById('claimModal').classList.remove('active'); } function shareWithOwner() { const name = window.__claimBizName || ''; const url = window.location.origin + '/registrar.html?negocio=' + encodeURIComponent(name); const msg = (currentLang === 'en') ? 'Hi! Your business "' + name + '" is listed on Plaza Móvil — claim it free here: ' + url : 'Hola! Tu negocio "' + name + '" está en Plaza Móvil — reclámalo gratis aquí: ' + url; if (navigator.share) { navigator.share({ text: msg }); } else { navigator.clipboard.writeText(msg); alert(currentLang === 'en' ? 'Link copied!' : '¡Enlace copiado!'); } }
+function openClaimModal(name) {
+  document.getElementById('claimModalTitle').textContent = name;
+  document.getElementById('claimModalLink').href = '/registrar.html?negocio=' + encodeURIComponent(name);
+  document.getElementById('claimModal').classList.add('active');
+  window.__claimBizName = name;
+}
+function closeClaimModal(e) { if (e) e.stopPropagation(); document.getElementById('claimModal').classList.remove('active'); }
+function shareWithOwner() {
+  const name = window.__claimBizName || '';
+  const url = window.location.origin + '/registrar.html?negocio=' + encodeURIComponent(name);
+  const msg = (currentLang === 'en')
+    ? 'Hi! Your business "' + name + '" is listed on Plaza M\u00f3vil \u2014 claim it free here: ' + url
+    : 'Hola! Tu negocio "' + name + '" est\u00e1 en Plaza M\u00f3vil \u2014 recl\u00e1malo gratis aqu\u00ed: ' + url;
+  if (navigator.share) { navigator.share({ text: msg }); }
+  else { navigator.clipboard.writeText(msg); alert(currentLang === 'en' ? 'Link copied!' : '\u00a1Enlace copiado!'); }
+}
+</script>
 </body>
 </html>
