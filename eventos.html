@@ -1,133 +1,537 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Eventos & Fiestas en Progreso, Yucatan — Plaza Movil" />
-  <title>Eventos & Fiestas en Progreso — Plaza Movil</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    :root{--teal:#1A6B5C;--henequen:#D4763A;--arena:#F5EBD9;--noche:#1C2B3A;--espuma:#7BBFB4;--white:#FFFFFF;--muted:#888780;--border:rgba(212,118,58,0.10);--font-display:"Playfair Display",Georgia,serif;--font-body:"Inter",sans-serif;}
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:var(--font-body);background:var(--arena);color:var(--noche);-webkit-font-smoothing:antialiased;}
-    a{color:inherit;text-decoration:none;}
-    .container{max-width:480px;margin:0 auto;}
-    .nav{background:var(--white);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
-    .logo-svg{height:36px;width:auto;}
-    .nav-lang{background:var(--arena);color:var(--henequen);font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;cursor:pointer;border:none;}
-    .hero{background:linear-gradient(150deg,#D4763A,#BF5A20);padding:24px 20px 32px;position:relative;overflow:hidden;}
-    .hero::before{content:"";position:absolute;right:-20px;top:-20px;width:120px;height:120px;background:rgba(255,255,255,0.07);border-radius:50%;}
-    .hero-back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.75);font-size:12px;margin-bottom:14px;}
-    .hero-emoji{font-size:36px;margin-bottom:10px;display:block;}
-    .hero-title{font-family:var(--font-display);font-size:26px;color:#fff;line-height:1.2;margin-bottom:6px;}
-    .hero-sub{color:rgba(255,255,255,0.8);font-size:13px;margin-bottom:16px;}
-    .hero-count{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,0.18);color:#fff;font-size:11px;padding:4px 12px;border-radius:20px;}
-    .search-wrap{background:#fff;border-radius:14px;padding:11px 16px;display:flex;align-items:center;gap:10px;margin:16px 0 0;box-shadow:0 4px 16px rgba(0,0,0,0.15);}
-    .search-wrap input{flex:1;border:none;outline:none;font-family:var(--font-body);font-size:13px;color:var(--noche);background:transparent;}
-    .search-wrap input::placeholder{color:var(--muted);}
-    .wave{display:block;width:100%;margin-top:-1px;}
-    .body{background:var(--arena);padding:16px;}
-    .sec-title{font-size:14px;font-weight:700;color:var(--noche);margin-bottom:12px;}
-    .empty{text-align:center;padding:40px 20px;color:var(--muted);}
-    .empty-icon{font-size:40px;margin-bottom:12px;}
-    .list-cta{background:#fff;border-radius:14px;padding:16px;margin:16px 0;border:2px dashed rgba(212,118,58,0.2);text-align:center;}
-    .list-cta-text{font-size:13px;color:var(--muted);margin-bottom:10px;}
-    .list-cta-btn{background:var(--henequen);color:#fff;font-size:12px;font-weight:700;padding:9px 20px;border-radius:20px;display:inline-block;}
-    .vendor{background:linear-gradient(135deg,var(--noche),#2A3D52);border-radius:16px;padding:20px 18px;text-align:center;margin-top:8px;}
-    .vendor-icon{font-size:26px;margin-bottom:7px;}
-    .vendor-title{font-family:var(--font-display);color:#fff;font-size:16px;margin-bottom:4px;}
-    .vendor-sub{color:var(--espuma);font-size:11px;margin-bottom:13px;line-height:1.6;}
-    .vendor-btn{background:var(--henequen);color:#fff;font-size:12px;font-weight:700;padding:10px 22px;border-radius:22px;display:inline-block;}
-    .footer{background:var(--noche);padding:20px 20px 32px;}
-    .footer-links{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:10px;}
-    .footer-link{color:var(--espuma);font-size:11px;opacity:0.85;}
-    .footer-social{display:flex;gap:14px;margin-bottom:10px;}
-    .footer-social a{color:var(--espuma);font-size:20px;}
-    .footer-tagline{color:rgba(123,191,180,0.45);font-size:11px;}
-    [lang-en]{display:none;}
-    body.en [lang-es]{display:none;}
-    body.en [lang-en]{display:block;}
-    span[lang-en]{display:none;}
-    body.en span[lang-es]{display:none;}
-    body.en span[lang-en]{display:inline;}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Eventos & Fiestas en Progreso — Plaza Móvil" />
+<title>Eventos & Fiestas en Progreso — Plaza Móvil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+    :root {
+      --teal:     #1A6B5C;
+      --henequen: #D4763A;
+      --arena:    #F5EBD9;
+      --noche:    #1C2B3A;
+      --espuma:   #7BBFB4;
+      --white:    #FFFFFF;
+      --muted:    #888780;
+      --border:   rgba(212,118,58,0.10);
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'Inter', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-body); background: var(--arena); color: var(--noche); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 480px; margin: 0 auto; }
+
+    /* NAV */
+    .nav { background: var(--white); padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    .logo-svg { height: 36px; width: auto; }
+    .nav-lang { background: var(--arena); color: var(--henequen); font-size: 11px; font-weight: 700; padding: 5px 12px; border-radius: 20px; cursor: pointer; border: none; }
+
+    /* HERO */
+    .hero { background: linear-gradient(150deg, #D4763A, #BF5A20); padding: 24px 20px 32px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; right: -20px; top: -20px; width: 120px; height: 120px; background: rgba(255,255,255,0.07); border-radius: 50%; }
+    .hero-back { display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.75); font-size: 12px; margin-bottom: 14px; }
+    .hero-back:hover { color: #fff; }
+    .hero-emoji { font-size: 36px; margin-bottom: 10px; display: block; }
+    .hero-title { font-family: var(--font-display); font-size: 26px; color: #fff; line-height: 1.2; margin-bottom: 6px; }
+    .hero-sub { color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px; }
+    .hero-count { display: inline-flex; align-items: center; gap: 5px; background: rgba(255,255,255,0.18); color: #fff; font-size: 11px; padding: 4px 12px; border-radius: 20px; }
+
+    /* SEARCH */
+    .search-wrap { background: var(--white); border-radius: 14px; padding: 11px 16px; display: flex; align-items: center; gap: 10px; margin: 16px 0 0; box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+    .search-wrap input { flex: 1; border: none; outline: none; font-family: var(--font-body); font-size: 13px; color: var(--noche); background: transparent; }
+    .search-wrap input::placeholder { color: var(--muted); }
+
+    /* WAVE */
+    .wave { display: block; width: 100%; margin-top: -1px; }
+
+    /* FILTER PILLS */
+    .filters { padding: 14px 16px 0; display: flex; gap: 8px; overflow-x: auto; padding-bottom: 0; }
+    .filters::-webkit-scrollbar { display: none; }
+    .filter-pill { background: var(--white); color: var(--noche); font-size: 11px; font-weight: 500; padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border); white-space: nowrap; cursor: pointer; transition: all 0.15s; flex-shrink: 0; }
+    .filter-pill.active { background: var(--henequen); color: #fff; border-color: var(--henequen); }
+
+    /* BODY */
+    .body { background: var(--arena); padding: 16px 16px; }
+
+    /* BIZ CARDS */
+    .sec-title { font-size: 14px; font-weight: 700; color: var(--noche); margin-bottom: 12px; }
+    .biz-card { background: var(--white); border-radius: 14px; padding: 14px; margin-bottom: 10px; border: 1px solid rgba(28,43,58,0.06); display: flex; align-items: center; gap: 13px; cursor: pointer; transition: box-shadow 0.2s; }
+    .biz-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+    .biz-photo { width: 54px; height: 54px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 28px; flex-shrink: 0; }
+    .biz-info { flex: 1; min-width: 0; }
+    .biz-name { font-size: 13px; font-weight: 700; color: var(--noche); }
+    .biz-type { font-size: 11px; color: var(--muted); margin: 2px 0; }
+    .biz-row { display: flex; align-items: center; gap: 6px; margin-top: 4px; flex-wrap: wrap; }
+    .stars { color: var(--henequen); font-size: 11px; }
+    .rating { font-size: 11px; color: var(--muted); }
+    .badge { font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 8px; }
+    .badge-dest { background: #FFF0E6; color: var(--henequen); }
+    .badge-ver  { background: #E6F5F1; color: var(--teal); }
+    .badge-new  { background: #EEEDE8; color: #666; }
+    .biz-hours { font-size: 10px; color: var(--teal); margin-top: 3px; font-weight: 500; }
+    .wa-btn { background: var(--teal); color: #fff; font-size: 11px; font-weight: 600; padding: 9px 12px; border-radius: 10px; display: flex; align-items: center; gap: 4px; white-space: nowrap; flex-shrink: 0; border: none; cursor: pointer; }
+
+    /* EMPTY STATE */
+    .empty { text-align: center; padding: 40px 20px; color: var(--muted); }
+    .empty-icon { font-size: 40px; margin-bottom: 12px; }
+    .empty-text { font-size: 14px; }
+
+    /* LIST YOUR BIZ */
+    .list-cta { background: var(--white); border-radius: 14px; padding: 16px; margin: 16px 0; border: 2px dashed rgba(212,118,58,0.2); text-align: center; }
+    .list-cta-text { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+    .list-cta-btn { background: var(--henequen); color: #fff; font-size: 12px; font-weight: 700; padding: 9px 20px; border-radius: 20px; display: inline-block; }
+
+    /* VENDOR CTA */
+    .vendor { background: linear-gradient(135deg, var(--noche), #2A3D52); border-radius: 16px; padding: 20px 18px; text-align: center; margin-top: 8px; }
+    .vendor-icon { font-size: 26px; margin-bottom: 7px; }
+    .vendor-title { font-family: var(--font-display); color: #fff; font-size: 16px; margin-bottom: 4px; }
+    .vendor-sub { color: var(--espuma); font-size: 11px; margin-bottom: 13px; line-height: 1.6; }
+    .vendor-btn { background: var(--henequen); color: #fff; font-size: 12px; font-weight: 700; padding: 10px 22px; border-radius: 22px; display: inline-block; }
+
+    /* FOOTER */
+    .footer { background: var(--noche); padding: 20px 20px 32px; }
+    .footer-links { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 10px; }
+    .footer-link { color: var(--espuma); font-size: 11px; opacity: 0.85; }
+    .footer-social { display: flex; gap: 14px; margin-bottom: 10px; }
+    .footer-social a { color: var(--espuma); font-size: 20px; }
+    .footer-tagline { color: rgba(123,191,180,0.45); font-size: 11px; }
+    Este negocio aún no ha verificado su ficha en Plaza Móvil. This business hasn't verified their listing on Plaza Móvil yet.
+
+Verificar este negocio Verify this business 📤 Compartir con el dueñoShare with owner
+
+    /* LANG */
+    [lang-en] { display: none; }
+    body.en [lang-es] { display: none; }
+    body.en [lang-en] { display: block; }
+    span[lang-en] { display: none; }
+    body.en span[lang-es] { display: none; }
+    body.en span[lang-en] { display: inline; }
   </style>
 </head>
 <body>
 <div class="container">
-  <nav class="nav">
-    <a href="/" aria-label="Plaza Movil">
-      <svg class="logo-svg" viewBox="0 0 200 52" xmlns="http://www.w3.org/2000/svg">
-        <defs><linearGradient id="wg" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#F5A623"/><stop offset="100%" stop-color="#D4763A"/></linearGradient></defs>
-        <path d="M97 7 Q100 5 103 7" fill="none" stroke="url(#wg)" stroke-width="5.5" stroke-linecap="round"/>
-        <path d="M91 14 Q100 7 109 14" fill="none" stroke="url(#wg)" stroke-width="5.5" stroke-linecap="round"/>
-        <path d="M85 21 Q100 10 115 21" fill="none" stroke="url(#wg)" stroke-width="6" stroke-linecap="round"/>
-        <rect x="94" y="21" width="12" height="20" rx="2.5" fill="#1A6B5C"/>
-        <rect x="95.5" y="23" width="9" height="14" rx="1.5" fill="#fff" opacity="0.92"/>
-        <circle cx="100" cy="39.5" r="1.2" fill="#fff"/>
-        <text x="6" y="44" font-family="Georgia,serif" font-weight="700" font-size="24" fill="#1C2B3A">Plaza</text>
-        <text x="113" y="44" font-family="Georgia,serif" font-weight="700" font-size="24" fill="#1C2B3A">Movil</text>
-      </svg>
+
+<nav class="nav">
+<a href="/" aria-label="Plaza Móvil — Inicio">
+<svg class="logo-svg" viewBox="0 0 200 52" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="wg" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" stop-color="#F5A623"/>
+<stop offset="100%" stop-color="#D4763A"/>
+</linearGradient>
+</defs>
+<path d="M97 7 Q100 5 103 7" fill="none" stroke="url(#wg)" stroke-width="5.5" stroke-linecap="round"/>
+<path d="M91 14 Q100 7 109 14" fill="none" stroke="url(#wg)" stroke-width="5.5" stroke-linecap="round"/>
+<path d="M85 21 Q100 10 115 21" fill="none" stroke="url(#wg)" stroke-width="6" stroke-linecap="round"/>
+<rect x="94" y="21" width="12" height="20" rx="2.5" fill="#1A6B5C"/>
+<rect x="95.5" y="23" width="9" height="14" rx="1.5" fill="#fff" opacity="0.92"/>
+<circle cx="100" cy="39.5" r="1.2" fill="#fff"/>
+<text x="6" y="44" font-family="Georgia,serif" font-weight="700" font-size="24" fill="#1C2B3A">Plaza</text>
+<text x="113" y="44" font-family="Georgia,serif" font-weight="700" font-size="24" fill="#1C2B3A">Movil</text>
+</svg>
+</a>
+<button class="nav-lang" onclick="toggleLang()">
+<span lang-es>EN</span><span lang-en>ES</span>
+</button>
+</nav>
+
+<section class="hero">
+<a href="/categorias.html" class="hero-back">← <span lang-es>Categorías</span><span lang-en>Categories</<span class="hero-emoji">🎊</span>
+<h1 class="hero-title">
+<span lang-es>Eventos & Fiestas en Progreso</span>
+<span lang-en>Events & Parties in Progreso</span>
+</h1>
+<p class="hero-sub">
+<span lang-es>Organización de fiestas y eventos en Progreso</span>
+<span lang-en>Party & event planning in Progreso</span>
+</p>
+<span class="hero-count">🎊 <span lang-es>25 negocios</span><span lang-en>25 businesses</span></span>
+<div class="search-wrap">
+<span>🔍</span>
+<input type="search" id="biz-search"
+placeholder-es="Buscar en Eventos & Fiestas..."
+placeholder-en="Search Events & Parties..."
+oninput="filterBiz(this.value)"
+/>
+</div>
+/>
+</div>
+</section>
+
+<svg class="wave" viewBox="0 0 480 20" preserveAspectRatio="none">
+<path d="M0 0 Q120 20 240 10 Q360 0 480 15 L480 0 Z" fill="#BF5A20"/>
+<path d="M0 20 L480 20 L480 15 Q360 0 240 10 Q120 20 0 0 Z" fill="#F5EBD9"/>
+</svg>
+
+<main class="body">
+<p class="sec-title"><span lang-es>Negocios destacados</span><span lang-en>Featured businesses</span></p>
+
+<div id="biz-list">
+<article class="biz-card" data-key="denue-eventos-alquiladora-de-siilas-y-mesas-echazarreta-0" data-name="Alquiladora de Siilas y Mesas Echazarreta" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🎊</div>
+  <div class="biz-info">
+    <div class="biz-name">Alquiladora de Siilas y Mesas Echazarreta</div>
+    <div class="biz-type"><span lang-es>Eventos & Fiestas · Calle 110, Feliciano Canul Reyes</span><span lang-en>Events & Parties · Calle 110, Feliciano Canul Reyes</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-eventos-alquiladora-de-sillas-y-mesas-leled-1" data-name="Alquiladora de Sillas y Mesas Leled" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🎊</div>
+  <div class="biz-info">
+    <div class="biz-name">Alquiladora de Sillas y Mesas Leled</div>
+    <div class="biz-type"><span lang-es>Eventos & Fiestas · Calle 106 171, Feliciano Canul Reyes</span><span lang-en>Events & Parties · Calle 106 171, Feliciano Canul Reyes</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-eventos-alquiladora-el-crucero-2" data-name="Alquiladora el Crucero" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🎊</div>
+  <div class="biz-info">
+    <div class="biz-name">Alquiladora el Crucero</div>
+    <div class="biz-type"><span lang-es>Eventos & Fiestas · Calle 83 142, Centro</span><span lang-en>Events & Parties · Calle 83 142, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-eventos-ary-guadalupe-3" data-name="Ary Guadalupe" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🎊</div>
+  <div class="biz-info">
+    <div class="biz-name">Ary Guadalupe</div>
+    <div class="biz-type"><span lang-es>Eventos & Fiestas · Calle 76, Centro</span><span lang-en>Events & Parties · Calle 76, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-eventos-bodega-4" data-name="Bodega" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🎊</div>
+  <div class="biz-info">
+    <div class="biz-name">Bodega</div>
+    <div class="biz-type"><span lang-es>Eventos & Fiestas · Calle 25, Centro</span><span lang-en>Events & Parties · Calle 25, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-eventos-brisamar-5" data-name="Brisamar" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🎊</div>
+  <div class="biz-info">
+    <div class="biz-name">Brisamar</div>
+    <div class="biz-type"><span lang-es>Eventos & Fiestas · Calle 79, Costa Blanca</span><span lang-en>Events & Parties · Calle 79, Costa Blanca</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-eventos-coordinadora-de-eventos-6" data-name="Coordinadora de Eventos" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🎊</div>
+  <div class="biz-info">
+    <div class="biz-name">Coordinadora de Eventos</div>
+    <div class="biz-type"><span lang-es>Eventos & Fiestas · Calle 25 126, Centro</span><span lang-en>Events & Parties · Calle 25 126, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-eventos-light-sound-7" data-name="Light Sound" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🎊</div>
+  <div class="biz-info">
+    <div class="biz-name">Light Sound</div>
+    <div class="biz-type"><span lang-es>Eventos & Fiestas · Calle 78, Centro</span><span lang-en>Events & Parties · Calle 78, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-eventos-pa-lalos-8" data-name="Pa Lalos" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🎊</div>
+  <div class="biz-info">
+    <div class="biz-name">Pa Lalos</div>
+    <div class="biz-type"><span lang-es>Eventos & Fiestas · Calle 31, Nueva Yucalpetén</span><span lang-en>Events & Parties · Calle 31, Nueva Yucalpetén</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-eventos-recepciones-progreso-9" data-name="Recepciones Progreso" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🎊</div>
+  <div class="biz-info">
+    <div class="biz-name">Recepciones Progreso</div>
+    <div class="biz-type"><span lang-es>Eventos & Fiestas · Calle 78, Centro</span><span lang-en>Events & Parties · Calle 78, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-eventos-sala-de-fiesta-los-tres-potrillos-10" data-name="Sala de Fiesta los Tres Potrillos" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🎊</div>
+  <div class="biz-info">
+    <div class="biz-name">Sala de Fiesta los Tres Potrillos</div>
+    <div class="biz-type"><span lang-es>Eventos & Fiestas · Calle 40 50, Ismael García</span><span lang-en>Events & Parties · Calle 40 50, Ismael García</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-eventos-sala-de-fiestas-los-caracoles-11" data-name="Sala de Fiestas los Caracoles" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🎊</div>
+  <div class="biz-info">
+    <div class="biz-name">Sala de Fiestas los Caracoles</div>
+    <div class="biz-type"><span lang-es>Eventos & Fiestas · Calle 81 a, Nueva Yucalpetén</span><span lang-en>Events & Parties · Calle 81 a, Nueva Yucalpetén</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-eventos-sala-de-fiestas-villa-las-rosas-12" data-name="Sala de Fiestas Villa las Rosas" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🎊</div>
+  <div class="biz-info">
+    <div class="biz-name">Sala de Fiestas Villa las Rosas</div>
+    <div class="biz-type"><span lang-es>Eventos & Fiestas · Calle 92 158, Centro</span><span lang-en>Events & Parties · Calle 92 158, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-eventos-sala-de-recepcion-emilys-13" data-name="Sala de Recepcion Emilys" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🎊</div>
+  <div class="biz-info">
+    <div class="biz-name">Sala de Recepcion Emilys</div>
+    <div class="biz-type"><span lang-es>Eventos & Fiestas · Calle 83 176, Feliciano Canul Reyes</span><span lang-en>Events & Parties · Calle 83 176, Feliciano Canul Reyes</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-eventos-salon-de-eventos-garage-14" data-name="Salon de Eventos Garage" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🎊</div>
+  <div class="biz-info">
+    <div class="biz-name">Salon de Eventos Garage</div>
+    <div class="biz-type"><span lang-es>Eventos & Fiestas · Calle 31, Vicente Guerrero</span><span lang-en>Events & Parties · Calle 31, Vicente Guerrero</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-eventos-salon-de-fiesta-la-casita-infantil-15" data-name="Salon de Fiesta la Casita Infantil" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🎊</div>
+  <div class="biz-info">
+    <div class="biz-name">Salon de Fiesta la Casita Infantil</div>
+    <div class="biz-type"><span lang-es>Eventos & Fiestas · Calle 39, Revolución</span><span lang-en>Events & Parties · Calle 39, Revolución</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-eventos-salon-el-dragon-dorado-16" data-name="Salon el Dragon Dorado" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🎊</div>
+  <div class="biz-info">
+    <div class="biz-name">Salon el Dragon Dorado</div>
+    <div class="biz-type"><span lang-es>Eventos & Fiestas · Calle 81, Revolución</span><span lang-en>Events & Parties · Calle 81, Revolución</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-eventos-salon-para-eventos-el-milagro-17" data-name="Salon para Eventos el Milagro" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🎊</div>
+  <div class="biz-info">
+    <div class="biz-name">Salon para Eventos el Milagro</div>
+    <div class="biz-type"><span lang-es>Eventos & Fiestas · Calle 25, Costa Azul</span><span lang-en>Events & Parties · Calle 25, Costa Azul</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-eventos-villa-maria-fernanda-18" data-name="Villa Maria Fernanda" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🎊</div>
+  <div class="biz-info">
+    <div class="biz-name">Villa Maria Fernanda</div>
+    <div class="biz-type"><span lang-es>Eventos & Fiestas · Calle 77 143, Centro</span><span lang-en>Events & Parties · Calle 77 143, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-eventos-foto-bermudez-19" data-name="Foto Bermudez" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🎊</div>
+  <div class="biz-info">
+    <div class="biz-name">Foto Bermudez</div>
+    <div class="biz-type"><span lang-es>Eventos & Fiestas · Calle 81, Centro</span><span lang-en>Events & Parties · Calle 81, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-eventos-fotografia-leticia-bermudez-20" data-name="Fotografia Leticia Bermudez" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🎊</div>
+  <div class="biz-info">
+    <div class="biz-name">Fotografia Leticia Bermudez</div>
+    <div class="biz-type"><span lang-es>Eventos & Fiestas · Calle 81 135, Centro</span><span lang-en>Events & Parties · Calle 81 135, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-eventos-fotografia-tirsa-bermudez-21" data-name="Fotografia Tirsa Bermudez" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🎊</div>
+  <div class="biz-info">
+    <div class="biz-name">Fotografia Tirsa Bermudez</div>
+    <div class="biz-type"><span lang-es>Eventos & Fiestas · Calle 83 182, Centro</span><span lang-en>Events & Parties · Calle 83 182, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-eventos-fotografias-hervert-22" data-name="Fotografias Hervert" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🎊</div>
+  <div class="biz-info">
+    <div class="biz-name">Fotografias Hervert</div>
+    <div class="biz-type"><span lang-es>Eventos & Fiestas · Calle 83 748, Nueva Yucalpetén</span><span lang-en>Events & Parties · Calle 83 748, Nueva Yucalpetén</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-eventos-fotos-infantiles-mendez-23" data-name="Fotos Infantiles Mendez" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🎊</div>
+  <div class="biz-info">
+    <div class="biz-name">Fotos Infantiles Mendez</div>
+    <div class="biz-type"><span lang-es>Eventos & Fiestas · Calle 83, Centro</span><span lang-en>Events & Parties · Calle 83, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-eventos-fotos-leo-bermudez-24" data-name="Fotos Leo Bermudez" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo">🎊</div>
+  <div class="biz-info">
+    <div class="biz-name">Fotos Leo Bermudez</div>
+    <div class="biz-type"><span lang-es>Eventos & Fiestas · Calle 79, Centro</span><span lang-en>Events & Parties · Calle 79, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+</div><!-- /biz-list -->
+
+<div class="list-cta">
+<p class="list-cta-text">
+<span lang-es>¿Tienes un negocio en Progreso? ¡Aparece aquí gratis!</span>
+<span lang-en>Own a business in Progreso? Get listed here free!</span>
+</p>
+<a href="/registrar.html" class="list-cta-btn">
+<span lang-es>Registrar mi negocio</span>
+<span lang-en>List my business</span>
+</a>
+</div>
+
+<div class="vendor">
+<div class="vendor-icon">🏪</div>
+<div class="vendor-title">
+<span lang-es>¿Tu negocio está aquí?</span>
+<span lang-en>Is your business here?</span>
+</div>
+<p class="vendor-sub">
+<span lang-es>Únete gratis — miles te buscan en Progreso</span>
+<span lang-en>Join free — thousands are searching for you</span>
+</p>
+<a href="/registrar.html" class="vendor-btn">
+<span lang-es>Registra tu negocio gratis</span>
+<span lang-en>List your business free</span>
+</a>
+</div>
+
+</main>
+
+<div class="claim-modal-overlay" id="claimModal" onclick="closeClaimModal(event)">
+  <div class="claim-modal" onclick="event.stopPropagation()">
+    <button class="claim-modal-close" onclick="closeClaimModal(event)">✕</button>
+    <div class="claim-modal-icon">🔒</div>
+    <div class="claim-modal-title" id="claimModalTitle"></div>
+    <p class="claim-modal-text">
+      <span lang-es>Este negocio aún no ha verificado su ficha en Plaza Móvil.</span>
+      <span lang-en>This business hasn't verified their listing on Plaza Móvil yet.</span>
+    </p>
+    <a class="claim-modal-btn" id="claimModalLink" href="#">
+      <span lang-es>Verificar este negocio</span><span lang-en>Verify this business</span>
     </a>
-    <button class="nav-lang" onclick="toggleLang()"><span lang-es>EN</span><span lang-en>ES</span></button>
-  </nav>
-  <section class="hero">
-    <a href="/categorias.html" class="hero-back">← <span lang-es>Categorias</span><span lang-en>Categories</span></a>
-    <span class="hero-emoji">🎉</span>
-    <h1 class="hero-title"><span lang-es>Eventos & Fiestas en Progreso</span><span lang-en>Events & Parties in Progreso</span></h1>
-    <p class="hero-sub"><span lang-es>Decoración, catering y más</span><span lang-en>Decoration, catering and more</span></p>
-    <span class="hero-count">🎉 <span lang-es>Proximamente</span><span lang-en>Coming soon</span></span>
-    <div class="search-wrap">
-      <span>🔍</span>
-      <input type="search" id="biz-search" placeholder-es="Buscar Eventos & Fiestas..." placeholder-en="Search Events & Parties..." oninput="filterBiz(this.value)"/>
-    </div>
-  </section>
-  <svg class="wave" viewBox="0 0 480 20" preserveAspectRatio="none">
-    <path d="M0 0 Q120 20 240 10 Q360 0 480 15 L480 0 Z" fill="#BF5A20"/>
-    <path d="M0 20 L480 20 L480 15 Q360 0 240 10 Q120 20 0 0 Z" fill="#F5EBD9"/>
-  </svg>
-  <main class="body">
-    <p class="sec-title"><span lang-es>Negocios en esta categoria</span><span lang-en>Businesses in this category</span></p>
-    <div id="biz-list">
-      <div class="empty">
-        <div class="empty-icon">🎉</div>
-        <p style="font-size:14px;margin-bottom:6px;"><span lang-es>Pronto habra negocios aqui!</span><span lang-en>Businesses coming soon!</span></p>
-        <p style="font-size:12px;"><span lang-es>Estamos construyendo el directorio de Progreso.</span><span lang-en>We are building the Progreso directory.</span></p>
-      </div>
-    </div>
-    <div class="list-cta">
-      <p class="list-cta-text"><span lang-es>Tienes un negocio en esta categoria? Aparece aqui gratis!</span><span lang-en>Own a business in this category? Get listed here free!</span></p>
-      <a href="/registrar.html" class="list-cta-btn"><span lang-es>Registrar mi negocio</span><span lang-en>List my business</span></a>
-    </div>
-    <div class="vendor">
-      <div class="vendor-icon">🏪</div>
-      <div class="vendor-title"><span lang-es>Tu negocio esta aqui?</span><span lang-en>Is your business here?</span></div>
-      <p class="vendor-sub"><span lang-es>Unete gratis — miles te buscan en Progreso</span><span lang-en>Join free — thousands are searching for you</span></p>
-      <a href="/registrar.html" class="vendor-btn"><span lang-es>Registra tu negocio gratis</span><span lang-en>List your business free</span></a>
-    </div>
-  </main>
-  <footer class="footer">
-    <nav class="footer-links">
-      <a href="/" class="footer-link"><span lang-es>Inicio</span><span lang-en>Home</span></a>
-      <a href="/categorias.html" class="footer-link"><span lang-es>Categorias</span><span lang-en>Categories</span></a>
-      <a href="/delivery.html" class="footer-link">Delivery</a>
-      <a href="/terminos.html" class="footer-link"><span lang-es>Terminos</span><span lang-en>Terms</span></a>
-      <a href="/privacidad.html" class="footer-link"><span lang-es>Privacidad</span><span lang-en>Privacy</span></a>
-    </nav>
-    <div class="footer-social">
-      <a href="https://facebook.com/plazamovilprogreso" target="_blank">📘</a>
-      <a href="https://instagram.com/plazamovilprogreso" target="_blank">📸</a>
-    </div>
-    <p class="footer-tagline">Descubre lo mejor de Progreso 🌊</p>
-  </footer>
+    <button class="claim-modal-btn-secondary" onclick="shareWithOwner()">
+      📤 <span lang-es>Compartir con el dueño</span><span lang-en>Share with owner</span>
+    </button>
+  </div>
+</div>
+
+<footer class="footer">
+<nav class="footer-links">
+<a href="/" class="footer-link"><span lang-es>Inicio</span><span lang-en>Home</span></a>
+<a href="/categorias.html" class="footer-link"><span lang-es>Categorías</span><span lang-en>Categories</span></a>
+<a href="/delivery.html" class="footer-link">Delivery</a>
+<a href="/terminos.html" class="footer-link"><span lang-es>Términos</span><span lang-en>Terms</span></a>
+<a href="/privacidad.html" class="footer-link"><span lang-es>Privacidad</span><span lang-en>Privacy</span></a>
+</nav>
+<div class="footer-social">
+<a href="https://facebook.com/plazamovilprogreso" target="_blank">📘</a>
+<a href="https://instagram.com/plazamovilprogreso" target="_blank">📸</a>
+</div>
+<p class="footer-tagline">Descubre lo mejor de Progreso 🌊</p>
+</footer>
+
 </div>
 <script>
-  let currentLang = localStorage.getItem("pm-lang") || "es";
-  function applyLang(lang) { currentLang=lang; document.body.classList.toggle("en",lang==="en"); document.documentElement.lang=lang==="en"?"en":"es"; localStorage.setItem("pm-lang",lang); const i=document.getElementById("biz-search"); if(i) i.placeholder=lang==="en"?i.getAttribute("placeholder-en"):i.getAttribute("placeholder-es"); }
-  function toggleLang() { applyLang(currentLang==="es"?"en":"es"); }
-  function filterBiz(q) { document.querySelectorAll("#biz-list article").forEach(c=>{ c.style.display=c.textContent.toLowerCase().includes(q.toLowerCase())?"flex":"none"; }); }
-  applyLang(currentLang);
+let currentLang = localStorage.getItem('pm-lang') || 'es';
+function applyLang(lang) {
+  currentLang = lang;
+  document.body.classList.toggle('en', lang === 'en');
+  document.documentElement.lang = lang === 'en' ? 'en' : 'es';
+  localStorage.setItem('pm-lang', lang);
+  const input = document.getElementById('biz-search');
+  if (input) input.placeholder = lang === 'en' ? input.getAttribute('placeholder-en') : input.getAttribute('placeholder-es');
+}
+function toggleLang() { applyLang(currentLang === 'es' ? 'en' : 'es'); }
+
+function filterBiz(q) {
+  document.querySelectorAll('#biz-list article').forEach(c => {
+    c.style.display = c.textContent.toLowerCase().includes(q.toLowerCase()) ? 'flex' : 'none';
+  });
+}
+
+function openWA(number, name) {
+  const msg = currentLang === 'en'
+    ? 'Hi! I found you on Plaza M\u00f3vil and I have a question.'
+    : 'Hola! Te encontr\u00e9 en Plaza M\u00f3vil y tengo una pregunta.';
+  window.open('https://wa.me/' + number + '?text=' + encodeURIComponent(msg), '_blank');
+}
+
+applyLang(currentLang);
+
+const VENDOR_STATUS_URL = 'https://hook.us2.make.com/cwur7y9mnqfnhxtmon7wczaqjuvoffrk';
+async function syncVendorStatus() {
+  try {
+    const res = await fetch(VENDOR_STATUS_URL);
+    const vendors = await res.json();
+    const statusMap = {};
+    vendors.forEach(v => { statusMap[v.key] = v; });
+    document.querySelectorAll('.biz-card[data-key]').forEach(card => {
+      const key = card.dataset.key;
+      const v = statusMap[key];
+      if (v && v.whatsappEnabled === 'true' && v.phone) {
+        const btn = card.querySelector('.wa-btn');
+        if (btn) {
+          const phoneDigits = v.phone.replace(/[^0-9]/g, '');
+          btn.classList.remove('unclaimed');
+          btn.textContent = '\ud83d\udcf1';
+          btn.onclick = (e) => { e.stopPropagation(); openWA(phoneDigits, v.businessName); };
+        }
+      }
+    });
+  } catch (err) {
+    console.log('Vendor status check failed \u2014 staying in safe/locked state.', err);
+  }
+}
+document.addEventListener('DOMContentLoaded', syncVendorStatus);
+
+function openClaimModal(name) {
+  document.getElementById('claimModalTitle').textContent = name;
+  document.getElementById('claimModalLink').href = '/registrar.html?negocio=' + encodeURIComponent(name);
+  document.getElementById('claimModal').classList.add('active');
+  window.__claimBizName = name;
+}
+function closeClaimModal(e) { if (e) e.stopPropagation(); document.getElementById('claimModal').classList.remove('active'); }
+function shareWithOwner() {
+  const name = window.__claimBizName || '';
+  const url = window.location.origin + '/registrar.html?negocio=' + encodeURIComponent(name);
+  const msg = (currentLang === 'en')
+    ? 'Hi! Your business "' + name + '" is listed on Plaza M\u00f3vil \u2014 claim it free here: ' + url
+    : 'Hola! Tu negocio "' + name + '" est\u00e1 en Plaza M\u00f3vil \u2014 recl\u00e1malo gratis aqu\u00ed: ' + url;
+  if (navigator.share) { navigator.share({ text: msg }); }
+  else { navigator.clipboard.writeText(msg); alert(currentLang === 'en' ? 'Link copied!' : '\u00a1Enlace copiado!'); }
+}
 </script>
 </body>
 </html>
+
