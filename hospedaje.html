@@ -261,140 +261,126 @@ oninput="filterBiz(this.value)"
   </div>
   <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
 </article>
-</div><!-- /biz-list -->
-
-<div class="list-cta">
-<p class="list-cta-text">
-<span lang-es>¿Tienes un negocio en Progreso? ¡Aparece aquí gratis!</span>
-<span lang-en>Own a business in Progreso? Get listed here free!</span>
-</p>
-<a href="/registrar.html" class="list-cta-btn">
-<span lang-es>Registrar mi negocio</span>
-<span lang-en>List my business</span>
-</a>
-</div>
-
-<div class="vendor">
-<div class="vendor-icon">🏪</div>
-<div class="vendor-title">
-<span lang-es>¿Tu negocio está aquí?</span>
-<span lang-en>Is your business here?</span>
-</div>
-<p class="vendor-sub">
-<span lang-es>Únete gratis — miles te buscan en Progreso</span>
-<span lang-en>Join free — thousands are searching for you</span>
-</p>
-<a href="/registrar.html" class="vendor-btn">
-<span lang-es>Registra tu negocio gratis</span>
-<span lang-en>List your business free</span>
-</a>
-</div>
-
-</main>
-
-<div class="claim-modal-overlay" id="claimModal" onclick="closeClaimModal(event)">
-  <div class="claim-modal" onclick="event.stopPropagation()">
-    <button class="claim-modal-close" onclick="closeClaimModal(event)">✕</button>
-    <div class="claim-modal-icon">🔒</div>
-    <div class="claim-modal-title" id="claimModalTitle"></div>
-    <p class="claim-modal-text">
-      <span lang-es>Este negocio aún no ha verificado su ficha en Plaza Móvil.</span>
-      <span lang-en>This business hasn't verified their listing on Plaza Móvil yet.</span>
-    </p>
-    <a class="claim-modal-btn" id="claimModalLink" href="#">
-      <span lang-es>Verificar este negocio</span><span lang-en>Verify this business</span>
-    </a>
-    <button class="claim-modal-btn-secondary" onclick="shareWithOwner()">
-      📤 <span lang-es>Compartir con el dueño</span><span lang-en>Share with owner</span>
-    </button>
+<article class="biz-card" data-key="denue-hospedaje-aldea-ommi-0" data-name="Aldea Ommi" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo"></div>
+  <div class="biz-info">
+    <div class="biz-name">Aldea Ommi</div>
+    <div class="biz-type"><span lang-es>Hospedaje · Calle 71 122, Centro</span><span lang-en>Lodging · Calle 71 122, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
   </div>
-</div>
-
-<footer class="footer">
-<nav class="footer-links">
-<a href="/" class="footer-link"><span lang-es>Inicio</span><span lang-en>Home</span></a>
-<a href="/categorias.html" class="footer-link"><span lang-es>Categorías</span><span lang-en>Categories</span></a>
-<a href="/delivery.html" class="footer-link">Delivery</a>
-<a href="/terminos.html" class="footer-link"><span lang-es>Términos</span><span lang-en>Terms</span></a>
-<a href="/privacidad.html" class="footer-link"><span lang-es>Privacidad</span><span lang-en>Privacy</span></a>
-</nav>
-<div class="footer-social">
-<a href="https://facebook.com/plazamovilprogreso" target="_blank">📘</a>
-<a href="https://instagram.com/plazamovilprogreso" target="_blank">📸</a>
-</div>
-<p class="footer-tagline">Descubre lo mejor de Progreso 🌊</p>
-</footer>
-
-</div>
-<script>
-let currentLang = localStorage.getItem('pm-lang') || 'es';
-function applyLang(lang) {
-  currentLang = lang;
-  document.body.classList.toggle('en', lang === 'en');
-  document.documentElement.lang = lang === 'en' ? 'en' : 'es';
-  localStorage.setItem('pm-lang', lang);
-  const input = document.getElementById('biz-search');
-  if (input) input.placeholder = lang === 'en' ? input.getAttribute('placeholder-en') : input.getAttribute('placeholder-es');
-}
-function toggleLang() { applyLang(currentLang === 'es' ? 'en' : 'es'); }
-
-function filterBiz(q) {
-  document.querySelectorAll('#biz-list article').forEach(c => {
-    c.style.display = c.textContent.toLowerCase().includes(q.toLowerCase()) ? 'flex' : 'none';
-  });
-}
-
-function openWA(number, name) {
-  const msg = currentLang === 'en'
-    ? 'Hi! I found you on Plaza M\u00f3vil and I have a question.'
-    : 'Hola! Te encontr\u00e9 en Plaza M\u00f3vil y tengo una pregunta.';
-  window.open('https://wa.me/' + number + '?text=' + encodeURIComponent(msg), '_blank');
-}
-
-applyLang(currentLang);
-
-const VENDOR_STATUS_URL = 'https://hook.us2.make.com/cwur7y9mnqfnhxtmon7wczaqjuvoffrk';
-async function syncVendorStatus() {
-  try {
-    const res = await fetch(VENDOR_STATUS_URL);
-    const vendors = await res.json();
-    const statusMap = {};
-    vendors.forEach(v => { statusMap[v.key] = v; });
-    document.querySelectorAll('.biz-card[data-key]').forEach(card => {
-      const key = card.dataset.key;
-      const v = statusMap[key];
-      if (v && v.whatsappEnabled === 'true' && v.phone) {
-        const btn = card.querySelector('.wa-btn');
-        if (btn) {
-          const phoneDigits = v.phone.replace(/[^0-9]/g, '');
-          btn.classList.remove('unclaimed');
-          btn.textContent = '\ud83d\udcf1';
-          btn.onclick = (e) => { e.stopPropagation(); openWA(phoneDigits, v.businessName); };
-        }
-      }
-    });
-  } catch (err) {
-    console.log('Vendor status check failed \u2014 staying in safe/locked state.', err);
-  }
-}
-document.addEventListener('DOMContentLoaded', syncVendorStatus);
-
-function openClaimModal(name) {
-  document.getElementById('claimModalTitle').textContent = name;
-  document.getElementById('claimModalLink').href = '/registrar.html?negocio=' + encodeURIComponent(name);
-  document.getElementById('claimModal').classList.add('active');
-  window.__claimBizName = name;
-}
-function closeClaimModal(e) { if (e) e.stopPropagation(); document.getElementById('claimModal').classList.remove('active'); }
-function shareWithOwner() {
-  const name = window.__claimBizName || '';
-  const url = window.location.origin + '/registrar.html?negocio=' + encodeURIComponent(name);
-  const msg = (currentLang === 'en')
-    ? 'Hi! Your business "' + name + '" is listed on Plaza M\u00f3vil \u2014 claim it free here: ' + url
-    : 'Hola! Tu negocio "' + name + '" est\u00e1 en Plaza M\u00f3vil \u2014 recl\u00e1malo gratis aqu\u00ed: ' + url;
-  if (navigator.share) { navigator.share({ text: msg }); }
-  else { navigator.clipboard.writeText(msg); alert(currentLang === 'en' ? 'Link copied!' : '\u00a1Enlace copiado!'); }
-}
-</script>
-</body>
-</html>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-hospedaje-cimar-1" data-name="Cimar" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo"></div>
+  <div class="biz-info">
+    <div class="biz-name">Cimar</div>
+    <div class="biz-type"><span lang-es>Hospedaje · Calle 80, Centro</span><span lang-en>Lodging · Calle 80, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-hospedaje-hostal-itze-boutique-2" data-name="Hostal Itze Boutique" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo"></div>
+  <div class="biz-info">
+    <div class="biz-name">Hostal Itze Boutique</div>
+    <div class="biz-type"><span lang-es>Hospedaje · Calle 71 132, Centro</span><span lang-en>Lodging · Calle 71 132, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-hospedaje-hostel-aabi-loob-3" data-name="Hostel Aabi Loob" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo"></div>
+  <div class="biz-info">
+    <div class="biz-name">Hostel Aabi Loob</div>
+    <div class="biz-type"><span lang-es>Hospedaje · Calle 81, Centro</span><span lang-en>Lodging · Calle 81, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-hospedaje-hotel-amor-4" data-name="Hotel Amor" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo"></div>
+  <div class="biz-info">
+    <div class="biz-name">Hotel Amor</div>
+    <div class="biz-type"><span lang-es>Hospedaje · Calle 79, Vicente Guerrero</span><span lang-en>Lodging · Calle 79, Vicente Guerrero</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-hospedaje-hotel-baroni-5" data-name="Hotel Baroni" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo"></div>
+  <div class="biz-info">
+    <div class="biz-name">Hotel Baroni</div>
+    <div class="biz-type"><span lang-es>Hospedaje · Boulevard 75 132, Centro</span><span lang-en>Lodging · Boulevard 75 132, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-hospedaje-hotel-carismar-6" data-name="Hotel Carismar" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo"></div>
+  <div class="biz-info">
+    <div class="biz-name">Hotel Carismar</div>
+    <div class="biz-type"><span lang-es>Hospedaje · Calle 21 151, Centro</span><span lang-en>Lodging · Calle 21 151, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-hospedaje-hotel-colonial-progreso-7" data-name="Hotel Colonial Progreso" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo"></div>
+  <div class="biz-info">
+    <div class="biz-name">Hotel Colonial Progreso</div>
+    <div class="biz-type"><span lang-es>Hospedaje · Calle 83 151, Centro</span><span lang-en>Lodging · Calle 83 151, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-hospedaje-hotel-costa-azul-8" data-name="Hotel Costa Azul" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo"></div>
+  <div class="biz-info">
+    <div class="biz-name">Hotel Costa Azul</div>
+    <div class="biz-type"><span lang-es>Hospedaje · Calle 71 150, Centro</span><span lang-en>Lodging · Calle 71 150, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-hospedaje-hotel-don-jose-9" data-name="Hotel Don Jose" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo"></div>
+  <div class="biz-info">
+    <div class="biz-name">Hotel Don Jose</div>
+    <div class="biz-type"><span lang-es>Hospedaje · Calle 78 123, Boulevard Turístico Malecón</span><span lang-en>Lodging · Calle 78 123, Boulevard Turístico Malecón</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-hospedaje-hotel-el-navio-10" data-name="Hotel el Navio" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo"></div>
+  <div class="biz-info">
+    <div class="biz-name">Hotel el Navio</div>
+    <div class="biz-type"><span lang-es>Hospedaje · Calle 76 123, Centro</span><span lang-en>Lodging · Calle 76 123, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-hospedaje-hotel-independencia-11" data-name="Hotel Independencia" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo"></div>
+  <div class="biz-info">
+    <div class="biz-name">Hotel Independencia</div>
+    <div class="biz-type"><span lang-es>Hospedaje · Calle 80, Centro</span><span lang-en>Lodging · Calle 80, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-hospedaje-hotel-intermaya-12" data-name="Hotel Intermaya" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo"></div>
+  <div class="biz-info">
+    <div class="biz-name">Hotel Intermaya</div>
+    <div class="biz-type"><span lang-es>Hospedaje · Calle 78 148, Centro</span><span lang-en>Lodging · Calle 78 148, Centro</span></div>
+    <div class="biz-row"><span class="badge badge-new"><span lang-es>Nuevo</span><span lang-en>New</span></span></div>
+  </div>
+  <button class="wa-btn unclaimed" onclick="event.stopPropagation()">🔒</button>
+</article>
+<article class="biz-card" data-key="denue-hospedaje-hotel-libano-13" data-name="Hotel Libano" onclick="openClaimModal(this.dataset.name)">
+  <div class="biz-photo"></div>
+  <div class="biz-info">
+    <div class="biz-name">Hotel Libano</div>
+    <div class="biz-type"><span lang-es>Hospedaje · Calle 85 168, Centro</span><span lang-en>Lodging · Calle 85 168, Centro</span></div>
+    <div class="biz-
